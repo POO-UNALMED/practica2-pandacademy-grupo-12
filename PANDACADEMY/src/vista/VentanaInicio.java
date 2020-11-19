@@ -5,23 +5,13 @@ import java.awt.Font;
 import javafx.application.Application;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
-import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
-import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ScrollBar;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 public class VentanaInicio extends Application {
@@ -99,14 +89,23 @@ public class VentanaInicio extends Application {
 		view1.setFitWidth(200);
 		Button juanP=new Button("",view1);
 
-		
-		Button cristian=new Button("asd");
+		Image foto2=new Image(getClass().getResourceAsStream("/recursos/fotos/cristian.png"));
+		ImageView view2 =new ImageView(foto2);
+		view2.setFitHeight(200);
+		view2.setFitWidth(200);
+		Button cristian=new Button("",view2);
 
-		
-		Button jhonatan=new Button("asdad");
+		Image foto3=new Image(getClass().getResourceAsStream("/recursos/fotos/jhonatan.png"));
+		ImageView view3 =new ImageView(foto3);
+		view3.setFitHeight(200);
+		view3.setFitWidth(200);
+		Button jhonatan=new Button("",view3);
 
-		
-		Button Brian=new Button("asdas");
+		Image foto4=new Image(getClass().getResourceAsStream("/recursos/fotos/jump.jpg"));
+		ImageView view4 =new ImageView(foto4);
+		view4.setFitHeight(200);
+		view4.setFitWidth(200);
+		Button Brian=new Button("",view4);
 
 		
 		fotoAutores.add(juanP, 0, 0);
