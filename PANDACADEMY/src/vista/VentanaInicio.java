@@ -8,10 +8,16 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class VentanaInicio extends Application {
@@ -25,9 +31,23 @@ public class VentanaInicio extends Application {
 	public void start(Stage window) throws Exception {
 		
 		/**
+		 * creacion del menu 
+		 */
+		MenuBar menu = new MenuBar();
+		Menu Inicio= new Menu("Inicio");
+		MenuItem salir=new MenuItem("salir");
+		MenuItem descripcion=new MenuItem("descripcion");
+		Inicio.getItems().addAll(salir,descripcion);
+		menu.getMenus().add(Inicio);
+		VBox top=new VBox(menu);
+		
+		/**
 		 * creacion del panel principal
 		 */
-		GridPane principal= new GridPane();    
+		GridPane principal= new GridPane();
+		
+		
+		
 		GridPane p1= new GridPane();
 		p1.setPadding(new Insets(5,10,10,10));
 		p1.setVgap(50);
@@ -80,10 +100,12 @@ public class VentanaInicio extends Application {
 		
 		
 		
-		
+		/**
+		 * creacion del gridpane con los autores del proyecto
+		 */
 		GridPane fotoAutores=new GridPane();
 		
-		Image foto1=new Image(getClass().getResourceAsStream("/recursos/fotos/Screen02.png"));
+		Image foto1=new Image(getClass().getResourceAsStream("/recursos/fotos/juan.png"));
 		ImageView view1 =new ImageView(foto1);
 		view1.setFitHeight(200);
 		view1.setFitWidth(200);
@@ -114,10 +136,20 @@ public class VentanaInicio extends Application {
 		fotoAutores.add(Brian, 1, 1);
 		
 		autores.add(fotoAutores, 0, 1);
-		
 		principal.add(autores, 1, 0);
 		
-		Scene primary= new Scene(principal,800,700);
+	
+		/**
+		 * creacion del Borderpane que contiene el gridpane y el menubar
+		 */
+		BorderPane root=new BorderPane();
+		root.setTop(top);
+		root.setCenter(principal);
+		root.setStyle("-fx-background-color: GRAY;"); //color fondo
+	
+		
+		Scene primary= new Scene(root,875,700);
+		
 		window.setScene(primary);
 		window.setResizable(false);
 		window.setTitle("Ventana de inicio");
