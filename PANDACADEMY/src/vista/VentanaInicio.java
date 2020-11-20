@@ -25,16 +25,21 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public class VentanaInicio extends Application {
+public class VentanaInicio {
 
 	Estudiante est;
-	public static void main(String[] args) {
-		launch(args);
-
+	Scene primary;
+	Button boton;
+	
+	public Scene getScene() {
+		return primary;
+	}
+	
+	public Button getBoton() {
+		return boton;
 	}
 
-	@Override
-	public void start(Stage window) throws Exception {
+	public VentanaInicio(){
 
 		javafx.scene.text.Font fuente = new javafx.scene.text.Font("Arial", 15);//archivo fuente
 		/**
@@ -84,7 +89,7 @@ public class VentanaInicio extends Application {
 		logo.setFitHeight(300);
 		logo.setFitWidth(350);
 
-		Button boton = new Button("INICIO");
+		boton = new Button("INICIO");
 		boton.setScaleX(4);
 		boton.setScaleY(2);
 		boton.setFont(fuente);
@@ -175,14 +180,8 @@ public class VentanaInicio extends Application {
 		root.setCenter(principal);
 		root.setStyle("-fx-background-color: GRAY;"); // color fondo
 
-		Scene primary = new Scene(root, 875, 700);
+		primary = new Scene(root, 875, 700);
 
-		window.setScene(primary);
-		window.setResizable(false);
-		window.setTitle("Ventana de inicio");
-		window.initStyle(StageStyle.UTILITY);
-
-		window.show();
 
 	}
 

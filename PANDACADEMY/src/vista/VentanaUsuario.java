@@ -10,25 +10,30 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class VentanaUsuario extends Application  {
+public class VentanaUsuario  {
 
 	VBox barra; 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		launch(args);
+	Scene user;
+	MenuItem salir;
+	
+	public MenuItem getsalir() {
+		return salir;
 	}
-	@Override
-	public void start(Stage usuario) throws Exception {
-		// TODO Auto-generated method stub
+	
+	public Scene getScene() {
+		return user;
+	}
+
+	public VentanaUsuario() {
 		
 		BorderPane nombre = new BorderPane();
-		Scene user = new Scene(nombre, 800, 700);
+		user = new Scene(nombre, 800, 700);
 		
 		MenuBar barraMenu = new MenuBar();
 		
 		Menu archivo = new Menu("Archivo");
 		MenuItem usuarioMenu = new MenuItem("Usuario");
-		MenuItem salir = new MenuItem("Salir");
+		 salir = new MenuItem("Salir");
 		archivo.getItems().addAll(usuarioMenu, salir);
 		
 		Menu procesos = new Menu("Procesos y consultas");
@@ -86,10 +91,7 @@ public class VentanaUsuario extends Application  {
 		
 		
 		nombre.setTop(barra);
-		usuario.setScene(user);
-		usuario.setResizable(false);
-		usuario.setTitle("Pandacademy");
-		usuario.show();
+
 		
 		
 	}
