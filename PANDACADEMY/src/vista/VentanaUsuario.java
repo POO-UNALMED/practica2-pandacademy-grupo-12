@@ -13,12 +13,10 @@ import javafx.stage.Stage;
 public class VentanaUsuario extends Application  {
 
 	VBox barra; 
-	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		launch(args);
 	}
-
 	@Override
 	public void start(Stage usuario) throws Exception {
 		// TODO Auto-generated method stub
