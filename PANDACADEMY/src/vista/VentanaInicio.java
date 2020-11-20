@@ -1,23 +1,22 @@
 package vista;
 
-import java.awt.Font;
-
-import Controladores.LeerArchivo;
+import Controladores.Eventos.EventoDescripcion;
+import Controladores.Eventos.EventoHojaVida;
+import Controladores.Eventos.EventoSalir;
 import gestorAplicacion.Persona.Estudiante;
+import Controladores.Eventos.EventoDescripcion;
+import Controladores.LeerArchivo;
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.event.Event;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -28,6 +27,7 @@ import javafx.stage.StageStyle;
 
 public class VentanaInicio extends Application {
 
+	Estudiante est;
 	public static void main(String[] args) {
 		launch(args);
 
@@ -51,19 +51,10 @@ public class VentanaInicio extends Application {
 		/**
 		 * control de eventos de la barra menu
 		 */
-		salir.setOnAction(event -> {
-			Platform.exit();
-			System.exit(1);
-		});
-
-		descripcion.setOnAction(event ->{
-			Alert describe = new Alert(AlertType.INFORMATION);
-			describe.setTitle("PANDACADEMY");
-			describe.setHeaderText("Descripcion de la aplicacion:");
-			describe.setContentText(LeerArchivo.leer("\\src\\recursos\\textos\\descripcion.txt"));
-			describe.initStyle(StageStyle.UTILITY);
-			describe.showAndWait();
-		});
+		EventoSalir Esalir = new EventoSalir(est);
+		salir.setOnAction(Esalir);
+		EventoDescripcion Edescrip = new EventoDescripcion();
+		descripcion.setOnAction(Edescrip);
 
 		/**
 		 * creacion del panel principal
@@ -111,10 +102,7 @@ public class VentanaInicio extends Application {
 		 * configuracion del boton inicio
 		 */
 
-		boton.setOnAction(event ->{
-			//launch(appClass, args);
-		});
-
+		boton.setOnAction(null);
 		/**
 		 * panel con las fotos y la hoja de vida de los creadores
 		 */
@@ -168,26 +156,17 @@ public class VentanaInicio extends Application {
 		/**
 		 * mostrar hoja de vida al dar click en una foto
 		 */
-		cristian.setOnAction(event ->{
-			hojaVida.clear();
-			hojaVida.setText(LeerArchivo.leer("\\src\\recursos\\textos\\cristian.txt"));
-		});
+		EventoHojaVida HVcristian = new EventoHojaVida("\\src\\recursos\\textos\\cristian.txt",hojaVida);
+		cristian.setOnAction(HVcristian);
 		
-		juanP.setOnAction(event ->{
-			hojaVida.clear();
-			hojaVida.setText(LeerArchivo.leer("\\src\\recursos\\textos\\juan.txt"));
-		});
+		EventoHojaVida HVjuan = new EventoHojaVida("\\src\\recursos\\textos\\juan.txt",hojaVida);
+		juanP.setOnAction(HVjuan);
 
-		jhonatan.setOnAction(event ->{
-			hojaVida.clear();
-			hojaVida.setText(LeerArchivo.leer("\\src\\recursos\\textos\\jhonatan.txt"));
-		});
+		EventoHojaVida HVjhonatan = new EventoHojaVida("\\src\\recursos\\textos\\jhonatan.txt",hojaVida);
+		jhonatan.setOnAction(HVjhonatan);
 
-		Brian.setOnAction(event ->{
-			hojaVida.clear();
-			hojaVida.setText(LeerArchivo.leer("\\src\\recursos\\textos\\brian.txt"));
-		});
-
+		EventoHojaVida HVbrian = new EventoHojaVida("\\src\\recursos\\textos\\brian.txt",hojaVida);
+		Brian.setOnAction(HVbrian);
 		/**
 		 * creacion del Borderpane que contiene el gridpane y el menubar
 		 */
