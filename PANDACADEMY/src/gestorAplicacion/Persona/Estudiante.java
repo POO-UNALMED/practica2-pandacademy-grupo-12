@@ -16,11 +16,7 @@ public class Estudiante extends Persona implements Serializable {
     super(dni,nombre,correo);
   }
   
-  public Estudiante() {
-
-}
-
-public boolean asgAprobada(String nombre) {
+  public boolean asgAprobada(String nombre) {
 	  boolean aux=true;
       for (int i = 0; i < this.getSemestres().size(); i++) {
           Semestre s = this.getSemestres().get(i);

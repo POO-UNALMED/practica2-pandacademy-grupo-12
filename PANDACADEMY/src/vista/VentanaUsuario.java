@@ -1,40 +1,20 @@
 package vista;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import paneles.FieldPanel;
-import paneles.PanelEditP;
 
 public class VentanaUsuario  {
-	
-	PanelEditP panelEditP= new PanelEditP();
-	
+
 	VBox barra; 
 	Scene user;
 	MenuItem salir;
-	BorderPane nombre;
-	MenuItem editarPerfil;
-	
-	
-	public MenuItem getEditarPerfil() {
-		return editarPerfil;
-	}
-	
-	public BorderPane getnombre() {
-		return nombre;
-	}
 	
 	public MenuItem getsalir() {
 		return salir;
@@ -46,9 +26,7 @@ public class VentanaUsuario  {
 
 	public VentanaUsuario() {
 		
-		EventoItems handler= new EventoItems();
-		
-		nombre = new BorderPane();
+		BorderPane nombre = new BorderPane();
 		user = new Scene(nombre, 800, 700);
 		
 		MenuBar barraMenu = new MenuBar();
@@ -62,10 +40,7 @@ public class VentanaUsuario  {
 		
 		Menu perfil = new Menu("Perfil");
 		MenuItem mostrarPerfil = new MenuItem("Mostrar perfil"); 
-		
-		editarPerfil = new MenuItem("Editar Perfil");
-		editarPerfil.setOnAction(handler);
-		
+		MenuItem editarPerfil = new MenuItem("Editar Perfil");
 		perfil.getItems().addAll(mostrarPerfil, editarPerfil);
 		
 		Menu asignatura = new Menu("Asignatura");
@@ -117,20 +92,8 @@ public class VentanaUsuario  {
 		
 		nombre.setTop(barra);
 
+		
+		
 	}
-	
-	public class EventoItems implements EventHandler<ActionEvent>{
 
-		@Override
-		public void handle(ActionEvent e) {
-			Object control= e.getSource();
-			if (control instanceof MenuItem) {
-				
-				if(control.equals(editarPerfil)) {
-					getnombre().setCenter(panelEditP.getpanel());
-				}
-								
-			}
-		}
-	}
 }

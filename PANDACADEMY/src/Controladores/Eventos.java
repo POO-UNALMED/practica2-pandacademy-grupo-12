@@ -49,7 +49,6 @@ public class Eventos {
         String ruta;
         TextArea hojaVida;
 
-
         public EventoHojaVida(String ruta, TextArea area){
             this.ruta=ruta;
             hojaVida = area;
