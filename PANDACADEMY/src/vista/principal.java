@@ -25,8 +25,8 @@ public class principal extends Application {
 		ChangeStage exitReturn = new ChangeStage(p.scene, window);
 		p1.salir.setOnAction(exitReturn);
 
-		//ChangeStage EditTeacher = new ChangeStage(teachers1.scene,window);
-		//p1.editarProfesores.setOnAction(EditTeacher);
+		ChangeStage EditTeacher = new ChangeStage(teachers1.scene,window);
+		p1.editarProfesores.setOnAction(EditTeacher);
 		
 		window.setScene(p.scene);
 		window.setResizable(false);
