@@ -16,7 +16,7 @@ public class PanelEditP {
 		
 		String[] criterios = new String[] {"NOMBRE","DOCUMENTO DE IDENTIDAD","CORREO","PLAN DE ESTUDIOS"};
 		String[] valores = new String[] { "asdas" ,"@ss","744554","inge",null};
-		boolean[] habilitados = new boolean[] {true,true,true,true};
+		boolean[] habilitados = new boolean[] {true,true,true,false};
 		
 		editarp=new FieldPanel("Datos",criterios,"valores",null,habilitados);
 		
@@ -32,7 +32,7 @@ public class PanelEditP {
 		
 		m.addColumn(0,editp,desc,editarp.getP());
 		
-		m.setAlignment(Pos.TOP_CENTER);
+		m.setAlignment(Pos.CENTER);
 		m.setVgap(20);
 
 		editarp.getP().addColumn(0, aceptar);
@@ -42,7 +42,7 @@ public class PanelEditP {
 		
 	}
 	
-	public GridPane getpanel() {
+	public GridPane getPanel() {
 		return m;
 	}
 	

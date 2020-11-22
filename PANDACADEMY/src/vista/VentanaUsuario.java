@@ -8,11 +8,13 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import paneles.PanelEditP;
+import paneles.*;
 
 public class VentanaUsuario {
 	
 	PanelEditP editp= new PanelEditP();
+	MostrarPerfil mostrarp= new MostrarPerfil();
+	
 	Handler evento= new Handler();
 	
 	BorderPane nombre = new BorderPane();
@@ -93,7 +95,7 @@ public class VentanaUsuario {
 			Object control= e.getSource();
 			if (control.equals(editarPerfil)) {
 				
-				nombre.setCenter(editp.getpanel());
+				nombre.setCenter(mostrarp.getPanel());
 			}
 			
 		}
