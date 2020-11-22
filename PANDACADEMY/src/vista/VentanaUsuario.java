@@ -13,7 +13,6 @@ import paneles.PanelEditP;
 public class VentanaUsuario {
 	
 	PanelEditP editp= new PanelEditP();
-	
 	Handler evento= new Handler();
 	
 	BorderPane nombre = new BorderPane();

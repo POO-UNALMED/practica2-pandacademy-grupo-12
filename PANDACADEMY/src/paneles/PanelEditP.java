@@ -14,8 +14,8 @@ public class PanelEditP {
 	
 	public PanelEditP(){
 		
-		String[] criterios = new String[] {"NOMBRE","DOCUMENTO DE IDENTIDAD","CORREO","PLAN DE ESTUDIOS",};
-		String[] valores = new String[] { "" ,"@ss","744554","inge",null};
+		String[] criterios = new String[] {"NOMBRE","DOCUMENTO DE IDENTIDAD","CORREO","PLAN DE ESTUDIOS"};
+		String[] valores = new String[] { "asdas" ,"@ss","744554","inge",null};
 		boolean[] habilitados = new boolean[] {true,true,true,true};
 		
 		editarp=new FieldPanel("Datos",criterios,"valores",null,habilitados);
@@ -30,7 +30,7 @@ public class PanelEditP {
 		Label desc=new Label(" EN ESTE SECCION PODRAS EDITAR LOS DATOS DE TU PERFIL ");
 		desc.setStyle("-fx-border-color: BLUE;");
 		
-		m.addColumn(0,editp,desc,editarp.getP(), new Label("AVANCE DE CARRERA: "));
+		m.addColumn(0,editp,desc,editarp.getP());
 		
 		m.setAlignment(Pos.TOP_CENTER);
 		m.setVgap(20);
