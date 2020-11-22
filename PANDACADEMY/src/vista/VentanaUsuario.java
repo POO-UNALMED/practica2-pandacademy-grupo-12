@@ -1,28 +1,18 @@
 package vista;
 
-import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 public class VentanaUsuario  {
 
 	VBox barra; 
 	Scene user;
 	MenuItem salir;
-	
-	public MenuItem getsalir() {
-		return salir;
-	}
-	
-	public Scene getScene() {
-		return user;
-	}
+	MenuItem editarProfesores;
 
 	public VentanaUsuario() {
 		

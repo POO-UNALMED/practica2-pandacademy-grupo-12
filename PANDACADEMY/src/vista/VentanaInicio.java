@@ -4,10 +4,6 @@ import Controladores.Eventos.EventoDescripcion;
 import Controladores.Eventos.EventoHojaVida;
 import Controladores.Eventos.EventoSalir;
 import gestorAplicacion.Persona.Estudiante;
-import Controladores.Eventos.EventoDescripcion;
-import Controladores.LeerArchivo;
-import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -22,22 +18,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 public class VentanaInicio {
 
 	Estudiante est;
-	Scene primary;
+	Scene scene;
 	Button boton;
-	
-	public Scene getScene() {
-		return primary;
-	}
-	
-	public Button getBoton() {
-		return boton;
-	}
 
 	public VentanaInicio(){
 
@@ -180,7 +166,7 @@ public class VentanaInicio {
 		root.setCenter(principal);
 		root.setStyle("-fx-background-color: GRAY;"); // color fondo
 
-		primary = new Scene(root, 875, 700);
+		scene = new Scene(root, 875, 700);
 
 
 	}

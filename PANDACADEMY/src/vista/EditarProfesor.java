@@ -1,10 +1,8 @@
 package vista;
 
+import gestorAplicacion.Persona.Profesor;
+import javafx.scene.Scene;
+
 public class EditarProfesor {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-
+    Scene scene;
 }

@@ -5,9 +5,12 @@ import BaseDatos.*;
 import gestorAplicacion.Persona.Estudiante;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class Eventos {
@@ -57,6 +60,24 @@ public class Eventos {
         public void handle(ActionEvent event) {
             hojaVida.clear();
 			hojaVida.setText(LeerArchivo.leer(ruta));
+        }
+    }
+
+    public static class ChangeStage implements EventHandler<ActionEvent> {
+        
+        Scene newImplements;
+        Stage primaryFrame;
+
+        public ChangeStage(Scene implement, Stage window){
+            newImplements=implement;
+            primaryFrame = window;
+        }
+
+        @Override
+        public void handle(ActionEvent event) {
+            primaryFrame.setScene(newImplements);
+			primaryFrame.setResizable(false);
+            
         }
     }
 

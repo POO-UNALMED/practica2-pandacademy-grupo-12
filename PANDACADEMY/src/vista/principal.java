@@ -1,7 +1,9 @@
 package vista;
 
 import Controladores.LeerArchivo;
+import Controladores.Eventos.ChangeStage;
 import javafx.application.Application;
+import javafx.collections.ListChangeListener.Change;
 import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
@@ -12,30 +14,23 @@ public class principal extends Application {
 	
 	VentanaInicio p= new VentanaInicio();
 	VentanaUsuario p1= new VentanaUsuario();
-
+	EditarProfesor teachers1 = new EditarProfesor();
 
 	@Override
 	public void start(Stage window) throws Exception {
 		
-		p.getBoton().setOnAction(event ->{       // p.getBoton() obtiene el boton Inicio de la Ventana de inicio
-			window.setScene(p1.getScene());
-			window.setResizable(true);
-			window.setTitle("Ventana de Usuario");
-			
+		ChangeStage startApp = new ChangeStage(p1.user, window);
+		p.boton.setOnAction(startApp);
+		
+		ChangeStage exitReturn = new ChangeStage(p.scene, window);
+		p1.salir.setOnAction(exitReturn);
 
-		});
+		ChangeStage EditTeacher = new ChangeStage(teachers1.scene,window);
+		p1.editarProfesores.setOnAction(EditTeacher);
 		
-		p1.getsalir().setOnAction(event ->{    // p1.getSalir() obtiene el menutiem salir de la ventana de usuario
-			window.setScene(p.getScene());
-			window.setResizable(false);
-			window.setTitle("Ventana de inicio");
-		});
-		
-
-		
-		window.setScene(p.getScene());
+		window.setScene(p.scene);
 		window.setResizable(false);
-		window.setTitle("Ventana de inicio");
+		window.setTitle("PANDACADEMY");
 		window.show();
 	}
 
