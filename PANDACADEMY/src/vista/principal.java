@@ -12,6 +12,8 @@ import javafx.stage.StageStyle;
 
 public class principal extends Application {
 	
+	
+	
 	VentanaInicio p= new VentanaInicio();
 	VentanaUsuario p1= new VentanaUsuario();
 	EditarProfesor teachers1 = new EditarProfesor();
@@ -25,8 +27,8 @@ public class principal extends Application {
 		ChangeStage exitReturn = new ChangeStage(p.scene, window);
 		p1.salir.setOnAction(exitReturn);
 
-		ChangeStage EditTeacher = new ChangeStage(teachers1.scene,window);
-		p1.editarProfesores.setOnAction(EditTeacher);
+		//ChangeStage EditTeacher = new ChangeStage(teachers1.scene,window);
+		//p1.editarProfesores.setOnAction(EditTeacher);
 		
 		window.setScene(p.scene);
 		window.setResizable(false);

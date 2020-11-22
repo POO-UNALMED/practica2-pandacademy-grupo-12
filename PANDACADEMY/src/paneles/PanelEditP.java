@@ -10,11 +10,16 @@ public class PanelEditP {
 	FieldPanel editarp;
 	Button aceptar=new Button("ACEPTAR");
 	Button borrar=new Button("BORRAR");
+	
+	
 	public PanelEditP(){
+		
 		String[] criterios = new String[] {"NOMBRE","DOCUMENTO DE IDENTIDAD","CORREO","PLAN DE ESTUDIOS",};
-		String[] valores = new String[] {"asd","@ss","744554","inge",null};
+		String[] valores = new String[] { "" ,"@ss","744554","inge",null};
 		boolean[] habilitados = new boolean[] {true,true,true,true};
-		editarp=new FieldPanel("Datos",criterios,"valores",valores,habilitados);
+		
+		editarp=new FieldPanel("Datos",criterios,"valores",null,habilitados);
+		
 		editarp.getP().setAlignment(Pos.CENTER);
 		editarp.getP().setVgap(10);
 		editarp.getP().setHgap(100);

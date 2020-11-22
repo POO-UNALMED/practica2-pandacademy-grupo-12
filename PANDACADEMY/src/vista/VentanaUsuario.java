@@ -1,14 +1,21 @@
 package vista;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import paneles.PanelEditP;
 
 public class VentanaUsuario {
-
+	
+	PanelEditP editp= new PanelEditP();
+	
+	Handler evento= new Handler();
+	
 	BorderPane nombre = new BorderPane();
 	Scene user=new Scene(nombre,800,700);
 
@@ -63,6 +70,8 @@ public class VentanaUsuario {
 
 	public VentanaUsuario(){
 		
+		editarPerfil.setOnAction(evento);
+		
 		archivo.getItems().addAll(usuarioMenu,salir);
 		perfil.getItems().addAll(mostrarPerfil,editarPerfil);
 		asignatura.getItems().addAll(mostrarAsignaturas,editarAsignaturas,crearAsignaturas,borrarAsignaturas);
@@ -76,6 +85,20 @@ public class VentanaUsuario {
 		barraMenu.getMenus().addAll(archivo,procesos,ayuda);
 
 		nombre.setTop(barra);
+	}
+	
+	class Handler implements EventHandler<ActionEvent>{
+
+		@Override
+		public void handle(ActionEvent e) {
+			Object control= e.getSource();
+			if (control.equals(editarPerfil)) {
+				
+				nombre.setCenter(editp.getpanel());
+			}
+			
+		}
+		
 	}
 
 }
