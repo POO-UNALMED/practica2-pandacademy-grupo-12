@@ -26,7 +26,7 @@ public class Deserialization {
 		} catch (FileNotFoundException e) {
 		} catch (IOException e) {
 		}
-		return null;
+		return new Estudiante();
 	}
 
 }

@@ -14,8 +14,8 @@ import BaseDatos.*;
 
 public class principal extends Application {
 
-	Estudiante estudiante;
-	Semestre sa = estudiante.getSemestres().get(estudiante.getSemestres().size() - 1); // ultimo semestre
+	public static Estudiante estudiante = new Estudiante();
+	public static Semestre sa = estudiante.getSemestres().get(estudiante.getSemestres().size() - 1); // ultimo semestre
 	VentanaInicio p = new VentanaInicio();
 	VentanaUsuario p1 = new VentanaUsuario();
 
@@ -102,10 +102,10 @@ public class principal extends Application {
 
 			else if (control.equals(p1.editarProfesores)) {
 
-				//ListaProfesores listaP = new ListaProfesores(estudiante.getSemestres().get(sa).getProfesorList());
-				//ScrollPane s = new ScrollPane(listaP.getPanel());
-				//s.setPadding(new Insets(10));
-				//p1.nombre.setCenter(s);
+				ListaProfesores listaP = new ListaProfesores(sa.getProfesorList());
+				ScrollPane s = new ScrollPane(listaP.getPanel());
+				s.setPadding(new Insets(10));
+				p1.nombre.setCenter(s);
 
 			} else if (control.equals(p1.semestres)) {
 				PanelSemestre semest = new PanelSemestre();
