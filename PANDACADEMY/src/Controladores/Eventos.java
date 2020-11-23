@@ -76,7 +76,7 @@ public class Eventos {
         @Override
         public void handle(ActionEvent event) {
             primaryFrame.setScene(newImplements);
-			primaryFrame.setResizable(true);
+			primaryFrame.setResizable(false);
             
         }
     }

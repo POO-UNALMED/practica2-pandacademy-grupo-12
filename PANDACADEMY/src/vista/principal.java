@@ -1,15 +1,8 @@
 package vista;
 
-import Controladores.LeerArchivo;
-import gestorAplicacion.Persona.Estudiante;
 import Controladores.Eventos.ChangeStage;
 import javafx.application.Application;
-import javafx.collections.ListChangeListener.Change;
-import javafx.scene.Scene;
-import javafx.scene.control.TextArea;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import paneles.EditarProfesor;
 
 public class principal extends Application {

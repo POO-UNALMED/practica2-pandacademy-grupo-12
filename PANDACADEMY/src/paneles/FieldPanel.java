@@ -70,6 +70,18 @@ public class FieldPanel extends Pane {
 		}
 		return aux;
 	}
+
+	public void setValues(String[] valores2) {
+		this.valores=valores2;
+	}
+
+	public void clean() {
+		int aux = 0;
+		for (TextField field : valorcrit) {
+			field.setText(valores[aux]);
+			aux++;
+		}
+	}
 }
 
 	

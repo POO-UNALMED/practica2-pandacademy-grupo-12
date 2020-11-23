@@ -3,7 +3,7 @@ package gestorAplicacion.Persona;
 import java.io.Serializable;
 
 public abstract class Persona implements Serializable {
-  protected final long dni; //Documento Nacional de Identificación (Cédula de Ciudadanía, Cédula de Extranjería o Tarjeta de Identidad)
+  protected long dni; //Documento Nacional de Identificación (Cédula de Ciudadanía, Cédula de Extranjería o Tarjeta de Identidad)
   protected String nombre;
   protected String correo;
 
@@ -35,5 +35,9 @@ public abstract class Persona implements Serializable {
 
   public void setCorreo(String correo) {
     this.correo = correo;
+  }
+
+  public void setDni(long dni) {
+    this.dni=dni;
   }
 }
