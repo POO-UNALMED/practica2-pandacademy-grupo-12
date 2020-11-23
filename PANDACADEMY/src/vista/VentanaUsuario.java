@@ -55,10 +55,9 @@ public class VentanaUsuario {
 	MenuItem borrarAsignaturas = new MenuItem("Borrar Asignaturas");
 	*/
 
-	Menu notas = new Menu("Notas");
-	MenuItem mostrarNotas = new MenuItem("Mostrar notas");
+
 	MenuItem calcularPAPA = new MenuItem("Calcular PAPA");
-	MenuItem calculadora = new MenuItem("Calculadora");
+
 
 	Menu horario = new Menu("Horario");
 	MenuItem horariosClase = new MenuItem("Mostrar horarios de clase");
@@ -97,11 +96,10 @@ public class VentanaUsuario {
 		
 		archivo.getItems().addAll(usuarioMenu,salir);
 		perfil.getItems().addAll(mostrarPerfil,editarPerfil);
-		notas.getItems().addAll(mostrarNotas,calcularPAPA,calculadora);
 		horario.getItems().addAll(horariosClase,horariosAsesoria);
 		profesores.getItems().addAll(listaProfesores,editarProfesores);
 		//semestres.getItems().addAll(nuevoSemestre,editarSemestre,eliminarSemestre,CambiarSemestre);
-		procesos.getItems().addAll(perfil,asignatura,notas,horario,profesores,semestres);
+		procesos.getItems().addAll(perfil,asignatura,calcularPAPA,horario,profesores,semestres);
 		ayuda.getItems().add(acerca);
 
 		barraMenu.getMenus().addAll(archivo,procesos,ayuda);
@@ -114,6 +112,7 @@ public class VentanaUsuario {
 		@Override
 		public void handle(ActionEvent e) {
 			Object control= e.getSource();
+			
 			if (control.equals(editarPerfil)) {
 				
 				nombre.setCenter(editp.getPanel());
@@ -122,9 +121,11 @@ public class VentanaUsuario {
 			else if (control.equals(mostrarPerfil)) {
 				nombre.setCenter(mostrarp.getPanel());
 			}
+			
 			else if (control.equals(asignatura)) {
 				nombre.setCenter(asig.getPanel());
 			}
+			
 			else if (control.equals(editarProfesores)) {
 				 
 				ScrollPane s=new ScrollPane(listaP.getPanel());

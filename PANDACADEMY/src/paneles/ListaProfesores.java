@@ -66,8 +66,7 @@ public class ListaProfesores {
 
 		}
 		
-		
-		
+			
 	}
 	
 	public GridPane getPanel() {

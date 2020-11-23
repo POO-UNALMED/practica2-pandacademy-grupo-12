@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 public class PanelSemestre {
 	
 	Estudiante est= new Estudiante();
+	
 	Button agregar= new Button("AGREGAR");
 	Button borrar= new Button("BORRAR");
 	Label titulo= new Label("SEMESTRES");
@@ -36,7 +37,7 @@ public class PanelSemestre {
 		est.addSemestre(new Semestre("semestre s"));
 		est.addSemestre(new Semestre("semestre s2"));
 		est.addSemestre(new Semestre("semestre sds"));
-		est.addSemestre(new Semestre("semestre 2"));
+
 		
 		principal.setAlignment(Pos.CENTER);
 		desc.setStyle("-fx-border-color: BLUE;");

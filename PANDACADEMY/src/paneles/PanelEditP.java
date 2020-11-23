@@ -27,6 +27,11 @@ public class PanelEditP {
 
 	
 	public PanelEditP(){
+		
+		aceptar.setOnAction(event ->{
+			estudent.setNombre("asddad");
+		});
+		
 		editarp.getP().setAlignment(Pos.CENTER);
 		editarp.getP().setVgap(10);
 		editarp.getP().setHgap(100);

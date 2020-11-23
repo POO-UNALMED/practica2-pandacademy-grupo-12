@@ -12,7 +12,9 @@ public class FieldPanel extends Pane {
 	private GridPane panel;
 	private String TituloCriterios;
 	private String[] criterios;
+	
 	private ArrayList<TextField> valorcrit=new ArrayList<>();
+	
 	private String TituloValores;
 	private String[] valores;
 	private boolean[] habilitados;
