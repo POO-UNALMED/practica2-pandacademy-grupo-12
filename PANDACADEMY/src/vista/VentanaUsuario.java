@@ -113,6 +113,8 @@ public class VentanaUsuario {
 				
 			}
 			else if (control.equals(editarProfesores)) {
+				 
+				
 				nombre.setCenter(new ScrollPane(listaP.getPanel()));
 				
 			}
