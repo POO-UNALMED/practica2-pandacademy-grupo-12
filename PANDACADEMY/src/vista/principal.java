@@ -11,6 +11,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
 import paneles.*;
 import BaseDatos.*;
+import gestorAplicacion.Persona.*;
 
 public class principal extends Application {
 
@@ -45,6 +46,7 @@ public class principal extends Application {
 	}
 
 	public static void main(String[] args) {
+		sa.addProfesor(new Profesor("carlos", sa));
 		launch(args);
 
 	}
@@ -64,14 +66,13 @@ public class principal extends Application {
 
 		@Override
 		public void handle(ActionEvent event) {
-			primaryFrame.setScene(newImplements);
-			primaryFrame.setResizable(false);
-
 			if (event.getEventType().equals(p.boton)) {
 				estudiante = Deserialization.deserializarE();
 			} else if (event.getSource().equals(p1.salir)) {
 				Serialization.serializarE(estudiante);
 			}
+			primaryFrame.setScene(newImplements);
+			primaryFrame.setResizable(false);
 
 		}
 	}
@@ -101,7 +102,7 @@ public class principal extends Application {
 			}
 
 			else if (control.equals(p1.editarProfesores)) {
-
+				
 				ListaProfesores listaP = new ListaProfesores(sa.getProfesorList());
 				ScrollPane s = new ScrollPane(listaP.getPanel());
 				s.setPadding(new Insets(10));

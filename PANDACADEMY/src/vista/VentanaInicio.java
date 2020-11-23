@@ -192,9 +192,9 @@ public class VentanaInicio {
         public void handle(ActionEvent e) {
             Alert describe = new Alert(AlertType.INFORMATION);
             describe.setTitle("PANDACADEMY");
-            describe.setHeaderText("Descripcion de la aplicacion:");
+            describe.setHeaderText(null);
             describe.setContentText(LeerArchivo.leer("\\src\\recursos\\textos\\descripcion.txt"));
-            describe.initStyle(StageStyle.UTILITY);
+			describe.initStyle(StageStyle.UTILITY);
             describe.showAndWait();
         }
 
