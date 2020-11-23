@@ -4,6 +4,7 @@ import gestorAplicacion.Academico.Asignatura;
 import gestorAplicacion.Persona.Profesor;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Menu;
@@ -45,12 +46,12 @@ public class VentanaUsuario {
 	MenuItem editarPerfil = new MenuItem("Editar Perfil");
 	
 
-	Menu asignatura = new Menu("Asignatura");
-	MenuItem mostrarAsignaturas = new MenuItem("Mostrar Asignaturas");
+	MenuItem asignatura = new MenuItem("Asignaturas");
+	/*MenuItem mostrarAsignaturas = new MenuItem("Mostrar Asignaturas");
 	MenuItem editarAsignaturas = new MenuItem("Editar Asignaturas");
 	MenuItem crearAsignaturas = new MenuItem("Crear Asignaturas");
 	MenuItem borrarAsignaturas = new MenuItem("Borrar Asignaturas");
-	
+	*/
 
 	Menu notas = new Menu("Notas");
 	MenuItem mostrarNotas = new MenuItem("Mostrar notas");
@@ -85,11 +86,13 @@ public class VentanaUsuario {
 		
 		editarPerfil.setOnAction(evento);
 		editarProfesores.setOnAction(evento);
+		mostrarPerfil.setOnAction(evento);
+		asignatura.setOnAction(evento);
+		
 
 		
 		archivo.getItems().addAll(usuarioMenu,salir);
 		perfil.getItems().addAll(mostrarPerfil,editarPerfil);
-		asignatura.getItems().addAll(mostrarAsignaturas,editarAsignaturas,crearAsignaturas,borrarAsignaturas);
 		notas.getItems().addAll(mostrarNotas,calcularPAPA,calculadora);
 		horario.getItems().addAll(horariosClase,horariosAsesoria);
 		profesores.getItems().addAll(listaProfesores,editarProfesores);
@@ -109,13 +112,20 @@ public class VentanaUsuario {
 			Object control= e.getSource();
 			if (control.equals(editarPerfil)) {
 				
-				nombre.setCenter(asig.getPanel());
+				nombre.setCenter(editp.getPanel());
 				
+			}
+			else if (control.equals(mostrarPerfil)) {
+				nombre.setCenter(mostrarp.getPanel());
+			}
+			else if (control.equals(asignatura)) {
+				nombre.setCenter(asig.getPanel());
 			}
 			else if (control.equals(editarProfesores)) {
 				 
-				
-				nombre.setCenter(new ScrollPane(listaP.getPanel()));
+				ScrollPane s=new ScrollPane(listaP.getPanel());
+				s.setPadding(new Insets(10));
+				nombre.setCenter(s);
 				
 			}
 			

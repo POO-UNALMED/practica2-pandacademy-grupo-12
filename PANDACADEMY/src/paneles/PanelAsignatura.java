@@ -5,6 +5,7 @@ import gestorAplicacion.Academico.*;
 import gestorAplicacion.Persona.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -29,7 +30,7 @@ public class PanelAsignatura {
 	
 	GridPane prin= new GridPane();
 	GridPane principal= new GridPane();
-	ScrollPane s= new ScrollPane(principal);
+	ScrollPane scroll= new ScrollPane(principal);
 	
 	VBox cajaBotones= new VBox();  //VBox que contiene las asignaturas
 	
@@ -82,8 +83,7 @@ public class PanelAsignatura {
 			botonesAsg.add(boton); // se añaden los botones de cada asignatura a una lista
 			
 		}
-		
-		s.setCenterShape(true);
+
 		HBox botones=new HBox(agregarasg,borrarasg);
 		botones.setSpacing(10);
 		botones.setAlignment(Pos.CENTER);
@@ -91,8 +91,9 @@ public class PanelAsignatura {
 		principal.addColumn(0,t,d,cajaBotones,botones);
 		principal.setAlignment(Pos.CENTER);
 		
-		prin.addColumn(0, s);
+		prin.addColumn(0, scroll);
 		prin.setAlignment(Pos.CENTER);
+		scroll.setPadding(new Insets(10));
 	
 
 		
