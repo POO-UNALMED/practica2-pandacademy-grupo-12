@@ -1,11 +1,11 @@
 package vista;
 
 import gestorAplicacion.Academico.Asignatura;
+import gestorAplicacion.Persona.Estudiante;
 import gestorAplicacion.Persona.Profesor;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
@@ -18,19 +18,6 @@ import paneles.PanelEditP;
 import paneles.*;
 
 public class VentanaUsuario {
-	
-	PanelEditP editp= new PanelEditP();
-	Profesor[] ejemploProfesores = new Profesor[] {new Profesor("Ejemplo", "ejemplo", "ejemplo", new Asignatura()),  
-			new Profesor("Ejemplo1", "ejemplo1", "ejemplo1", new Asignatura()),
-			new Profesor("Ejemplo2", "ejemplo2", "ejemplo2", new Asignatura())};
-	
-	ListaProfesores listaP = new ListaProfesores(ejemploProfesores);
-	MostrarPerfil mostrarp= new MostrarPerfil();
-	PanelAsignatura asig= new PanelAsignatura();
-	PanelSemestre semest= new PanelSemestre();
-	
-	
-	Handler evento= new Handler();
 	
 	BorderPane nombre = new BorderPane();
 	Scene user=new Scene(nombre,800,700);
@@ -86,14 +73,6 @@ public class VentanaUsuario {
 
 	public VentanaUsuario(){
 		
-		semestres.setOnAction(evento);
-		editarPerfil.setOnAction(evento);
-		editarProfesores.setOnAction(evento);
-		mostrarPerfil.setOnAction(evento);
-		asignatura.setOnAction(evento);
-		
-
-		
 		archivo.getItems().addAll(usuarioMenu,salir);
 		perfil.getItems().addAll(mostrarPerfil,editarPerfil);
 		horario.getItems().addAll(horariosClase,horariosAsesoria);
@@ -107,38 +86,6 @@ public class VentanaUsuario {
 		nombre.setTop(barra);
 	}
 	
-	class Handler implements EventHandler<ActionEvent>{
-
-		@Override
-		public void handle(ActionEvent e) {
-			Object control= e.getSource();
-			
-			if (control.equals(editarPerfil)) {
-				
-				nombre.setCenter(editp.getPanel());
-				
-			}
-			else if (control.equals(mostrarPerfil)) {
-				nombre.setCenter(mostrarp.getPanel());
-			}
-			
-			else if (control.equals(asignatura)) {
-				nombre.setCenter(asig.getPanel());
-			}
-			
-			else if (control.equals(editarProfesores)) {
-				 
-				ScrollPane s=new ScrollPane(listaP.getPanel());
-				s.setPadding(new Insets(10));
-				nombre.setCenter(s);
-				
-			}
-			else if (control.equals(semestres)) {
-				nombre.setCenter(semest.getPanel());
-			}
-			
-		}
-		
-	}
+	
 
 }

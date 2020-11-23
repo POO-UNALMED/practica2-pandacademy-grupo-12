@@ -2,7 +2,6 @@ package gestorAplicacion.Academico;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
 
 import gestorAplicacion.Horario;
 import gestorAplicacion.Persona.Profesor;
@@ -12,7 +11,7 @@ import gestorAplicacion.Persona.Profesor;
 public class Semestre implements Serializable, Comparable<Semestre> {
 
 	private String nombre;
-	public static ArrayList<Profesor> profesores = new ArrayList<>();  // lista que guarda los profesores 	de cada semestre
+	public ArrayList<Profesor> profesores = new ArrayList<>();  // lista que guarda los profesores 	de cada semestre
 	private ArrayList<Asignatura> asignaturas = new ArrayList<>(); // lista que guarda las asignaturas de cada semestre
 	private ArrayList<Horario> horarios = new ArrayList<>(); // lista que guarda todos los horarios de cada semestre;
 
@@ -25,6 +24,23 @@ public class Semestre implements Serializable, Comparable<Semestre> {
 
 	public void setprofesores(ArrayList<Profesor> p) {
 		profesores = p;
+	}
+
+	public ArrayList<Profesor> getProfesorList() {
+		return this.profesores;
+	}
+
+	public Profesor getProfesor(String nombre) {
+		for (Profesor profesor : profesores) {
+			if(profesor.getNombre().equals(nombre)){
+				return profesor;
+			}
+		}
+		return null;
+	}
+
+	public void addProfesor(Profesor profesor){
+		profesores.add(profesor);
 	}
 
 	public String getNombre() {

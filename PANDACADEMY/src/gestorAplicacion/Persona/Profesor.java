@@ -11,21 +11,20 @@ public class Profesor extends Persona implements Serializable {
   private Asignatura asignatura;
   private String detalles;
 
-  public Profesor() {
-    Semestre.profesores.add(this);
+  public Profesor(Semestre sa) {
+    sa.addProfesor(this);;
   }
 
-  public Profesor(String nombre, String correo, String detalles, Asignatura asignatura) {
-	this(nombre);
+  public Profesor(String nombre, String correo, String detalles, Asignatura asignatura, Semestre sa) {
+	this(nombre,sa);
     this.correo = correo;
     this.detalles = detalles;
     this.asignatura = asignatura;
-    Semestre.profesores.add(this);
   }
 
-  public Profesor(String nombre) {
+  public Profesor(String nombre, Semestre sa) {
+    this(sa);
     this.nombre = nombre;
-    Semestre.profesores.add(this);
   }
 
   public void setAsignatura(Asignatura asignatura) {
@@ -66,9 +65,9 @@ public class Profesor extends Persona implements Serializable {
    * @param nombre Nombre del profesor
    * @return Si existe el objeto, devuelve el objeto Profesor correspondiente. En caso contrario, devuelve <b>null</b>
    */
-  public static Profesor Buscar(String nombre) {
-    for (int i = 0; i < Semestre.profesores.size(); i++) {
-      Profesor p = Semestre.profesores.get(i);
+  public static Profesor Buscar(String nombre, Semestre sa) {
+    for (int i = 0; i < sa.getProfesorList().size(); i++) {
+      Profesor p = sa.getProfesorList().get(i);
       if (p.getNombre().equalsIgnoreCase(nombre)) {
         return p;
       }

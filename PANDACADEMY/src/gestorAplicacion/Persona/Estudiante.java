@@ -7,7 +7,6 @@ import gestorAplicacion.Academico.Semestre;
 
 
 public class Estudiante extends Persona implements Serializable {
-  private ArrayList<Profesor> profesores = Semestre.profesores;
   private String planDeEstudio;
   private int creditosR; //Créditos requeridos del estudiante en su plan de estudios.
   private ArrayList<Semestre> semestres = new ArrayList<>();
@@ -17,7 +16,7 @@ public class Estudiante extends Persona implements Serializable {
   }
   
   public Estudiante() {
-
+    semestres.add(new Semestre("semestre 0"));
 }
 
 public boolean asgAprobada(String nombre) {
@@ -37,10 +36,6 @@ public boolean asgAprobada(String nombre) {
   
   public void setPlanDeEstudo(String planDeEstudio) {
     this.planDeEstudio = planDeEstudio;
-  }
-  
-  public ArrayList<Profesor> getProfesores(){
-	  return profesores;
   }
 
   public String getPlanDeEstudio() {

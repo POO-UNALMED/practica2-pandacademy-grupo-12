@@ -1,23 +1,27 @@
 package vista;
 
-import Controladores.Eventos.EventoDescripcion;
-import Controladores.Eventos.EventoHojaVida;
-import Controladores.Eventos.EventoSalir;
+import Controladores.LeerArchivo;
 import gestorAplicacion.Persona.Estudiante;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.StageStyle;
 
 public class VentanaInicio {
 
@@ -25,9 +29,9 @@ public class VentanaInicio {
 	Scene scene;
 	Button boton;
 
-	public VentanaInicio(){
+	public VentanaInicio() {
 
-		javafx.scene.text.Font fuente = new javafx.scene.text.Font("Arial", 15);//archivo fuente
+		javafx.scene.text.Font fuente = new javafx.scene.text.Font("Arial", 15);// archivo fuente
 		/**
 		 * creacion del menu
 		 */
@@ -42,7 +46,7 @@ public class VentanaInicio {
 		/**
 		 * control de eventos de la barra menu
 		 */
-		EventoSalir Esalir = new EventoSalir(est);
+		EventoSalir Esalir = new EventoSalir();
 		salir.setOnAction(Esalir);
 		EventoDescripcion Edescrip = new EventoDescripcion();
 		descripcion.setOnAction(Edescrip);
@@ -101,7 +105,8 @@ public class VentanaInicio {
 		autores.setPadding(new Insets(5, 10, 10, 10));
 		autores.setVgap(70);
 
-		TextArea hojaVida = new TextArea("Dar click en la foto de alguno de los creadores de esta app para ver una breve hoja de vida de cada uno.");
+		TextArea hojaVida = new TextArea(
+				"Dar click en la foto de alguno de los creadores de esta app para ver una breve hoja de vida de cada uno.");
 		hojaVida.setEditable(false);
 		autores.add(hojaVida, 0, 0);
 		hojaVida.setWrapText(true);
@@ -147,16 +152,16 @@ public class VentanaInicio {
 		/**
 		 * mostrar hoja de vida al dar click en una foto
 		 */
-		EventoHojaVida HVcristian = new EventoHojaVida("\\src\\recursos\\textos\\cristian.txt",hojaVida);
+		EventoHojaVida HVcristian = new EventoHojaVida("\\src\\recursos\\textos\\cristian.txt", hojaVida);
 		cristian.setOnAction(HVcristian);
-		
-		EventoHojaVida HVjuan = new EventoHojaVida("\\src\\recursos\\textos\\juan.txt",hojaVida);
+
+		EventoHojaVida HVjuan = new EventoHojaVida("\\src\\recursos\\textos\\juan.txt", hojaVida);
 		juanP.setOnAction(HVjuan);
 
-		EventoHojaVida HVjhonatan = new EventoHojaVida("\\src\\recursos\\textos\\jhonatan.txt",hojaVida);
+		EventoHojaVida HVjhonatan = new EventoHojaVida("\\src\\recursos\\textos\\jhonatan.txt", hojaVida);
 		jhonatan.setOnAction(HVjhonatan);
 
-		EventoHojaVida HVbrian = new EventoHojaVida("\\src\\recursos\\textos\\brian.txt",hojaVida);
+		EventoHojaVida HVbrian = new EventoHojaVida("\\src\\recursos\\textos\\brian.txt", hojaVida);
 		Brian.setOnAction(HVbrian);
 		/**
 		 * creacion del Borderpane que contiene el gridpane y el menubar
@@ -167,8 +172,47 @@ public class VentanaInicio {
 		root.setStyle("-fx-background-color: GRAY;"); // color fondo
 
 		scene = new Scene(root, 875, 700);
-
-
 	}
+
+	/**
+	 * Evento para finalizar el programa
+	 */
+	class EventoSalir implements EventHandler<ActionEvent> {
+
+		@Override
+		public void handle(ActionEvent e) {
+			Platform.exit();
+			System.exit(1);
+		}
+	}
+
+	class EventoDescripcion implements EventHandler<ActionEvent> {
+
+        @Override
+        public void handle(ActionEvent e) {
+            Alert describe = new Alert(AlertType.INFORMATION);
+            describe.setTitle("PANDACADEMY");
+            describe.setHeaderText("Descripcion de la aplicacion:");
+            describe.setContentText(LeerArchivo.leer("\\src\\recursos\\textos\\descripcion.txt"));
+            describe.initStyle(StageStyle.UTILITY);
+            describe.showAndWait();
+        }
+
+    }
+    
+    class EventoHojaVida implements EventHandler<ActionEvent> {
+        String ruta;
+        TextArea hojaVida;
+
+        public EventoHojaVida(String ruta, TextArea area){
+            this.ruta=ruta;
+            hojaVida = area;
+        }
+        @Override
+        public void handle(ActionEvent event) {
+            hojaVida.clear();
+			hojaVida.setText(LeerArchivo.leer(ruta));
+        }
+    }
 
 }
