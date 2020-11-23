@@ -126,6 +126,7 @@ public class VentanaUsuario {
 				nombre.setCenter(asig.getPanel());
 			}
 			else if (control.equals(editarProfesores)) {
+				 
 				ScrollPane s=new ScrollPane(listaP.getPanel());
 				s.setPadding(new Insets(10));
 				nombre.setCenter(s);
