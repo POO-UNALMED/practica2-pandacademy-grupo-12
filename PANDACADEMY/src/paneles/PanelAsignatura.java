@@ -54,8 +54,7 @@ public class PanelAsignatura {
 		
 		semestreActual.addAsignatura(new Asignatura(4,"calculo"," ninguna"));  
 		semestreActual.addAsignatura(new Asignatura(4,"algebra"," ninguna"));
-
-		
+	
 		
 		
 		for (int i=0; i< semestreActual.getAsignaturas().size();i++) {

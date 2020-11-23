@@ -27,6 +27,8 @@ public class VentanaUsuario {
 	ListaProfesores listaP = new ListaProfesores(ejemploProfesores);
 	MostrarPerfil mostrarp= new MostrarPerfil();
 	PanelAsignatura asig= new PanelAsignatura();
+	PanelSemestre semest= new PanelSemestre();
+	
 	
 	Handler evento= new Handler();
 	
@@ -68,13 +70,14 @@ public class VentanaUsuario {
 	MenuItem editarProfesores = new MenuItem(
 			"Editar profesores");
 
-	Menu semestres = new Menu("Semestres");
-	MenuItem nuevoSemestre = new MenuItem("Nuevo semestre");
+	MenuItem semestres = new MenuItem("Semestres");
+	
+	/*MenuItem nuevoSemestre = new MenuItem("Nuevo semestre");
 	MenuItem editarSemestre = new MenuItem("Editar semestre");
 	MenuItem eliminarSemestre = new MenuItem("Eliminar semestre");
 	MenuItem CambiarSemestre = new MenuItem(
 			"Cambiar semestre");
-
+	 */
 
 	Menu ayuda = new Menu("Ayuda");
 	MenuItem acerca = new MenuItem("Acerca de");
@@ -84,6 +87,7 @@ public class VentanaUsuario {
 
 	public VentanaUsuario(){
 		
+		semestres.setOnAction(evento);
 		editarPerfil.setOnAction(evento);
 		editarProfesores.setOnAction(evento);
 		mostrarPerfil.setOnAction(evento);
@@ -96,7 +100,7 @@ public class VentanaUsuario {
 		notas.getItems().addAll(mostrarNotas,calcularPAPA,calculadora);
 		horario.getItems().addAll(horariosClase,horariosAsesoria);
 		profesores.getItems().addAll(listaProfesores,editarProfesores);
-		semestres.getItems().addAll(nuevoSemestre,editarSemestre,eliminarSemestre,CambiarSemestre);
+		//semestres.getItems().addAll(nuevoSemestre,editarSemestre,eliminarSemestre,CambiarSemestre);
 		procesos.getItems().addAll(perfil,asignatura,notas,horario,profesores,semestres);
 		ayuda.getItems().add(acerca);
 
@@ -126,6 +130,9 @@ public class VentanaUsuario {
 				s.setPadding(new Insets(10));
 				nombre.setCenter(s);
 				
+			}
+			else if (control.equals(semestres)) {
+				nombre.setCenter(semest.getPanel());
 			}
 			
 		}
