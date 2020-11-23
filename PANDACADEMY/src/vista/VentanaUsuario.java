@@ -4,6 +4,7 @@ import gestorAplicacion.Academico.Asignatura;
 import gestorAplicacion.Persona.Profesor;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
@@ -11,17 +12,26 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+<<<<<<< HEAD
 import paneles.ListaProfesores;
 import paneles.PanelEditP;
+=======
+import paneles.*;
+>>>>>>> 347f13487fd8c78108fd2be3dc9564aff0f9463f
 
 public class VentanaUsuario {
 	
 	PanelEditP editp= new PanelEditP();
+<<<<<<< HEAD
 	Profesor[] ejemploProfesores = new Profesor[] {new Profesor("Ejemplo", "ejemplo", "ejemplo", new Asignatura()),  
 			new Profesor("Ejemplo1", "ejemplo1", "ejemplo1", new Asignatura()),
 			new Profesor("Ejemplo2", "ejemplo2", "ejemplo2", new Asignatura())};
 	
 	ListaProfesores listaP = new ListaProfesores(ejemploProfesores);
+=======
+	MostrarPerfil mostrarp= new MostrarPerfil();
+	PanelAsignatura asig= new PanelAsignatura();
+>>>>>>> 347f13487fd8c78108fd2be3dc9564aff0f9463f
 	
 	Handler evento= new Handler();
 	
@@ -105,7 +115,8 @@ public class VentanaUsuario {
 			Object control= e.getSource();
 			if (control.equals(editarPerfil)) {
 				
-				nombre.setCenter(editp.getpanel());
+				nombre.setCenter(asig.getPanel());
+				
 			}
 			else if (control.equals(editarProfesores)) {
 				nombre.setCenter(new ScrollPane(listaP.getPanel()));
