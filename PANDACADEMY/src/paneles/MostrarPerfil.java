@@ -4,6 +4,7 @@ import gestorAplicacion.Persona.Estudiante;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 
 public class MostrarPerfil {
 	
@@ -22,11 +23,16 @@ public class MostrarPerfil {
 	public MostrarPerfil() {
 		titulo.setStyle("-fx-border-color: BLUE;");
 		desc.setStyle("-fx-border-color: BLUE;");
-		principal.addColumn(0, titulo,desc,l1,l2,l3,l4,l5);
+		VBox tit=new VBox(titulo,desc);
+		tit.setAlignment(Pos.CENTER);
+		VBox v1=new VBox(l1,l2,l3,l4,l5);
+		v1.setSpacing(15);
+		tit.setSpacing(15);
 		
+		principal.addColumn(0, tit,v1);
 		principal.setAlignment(Pos.CENTER);
-		principal.setVgap(20);
-		principal.setHgap(20);
+		principal.setVgap(40);
+		principal.setHgap(40);
 		
 	}
 	

@@ -2,6 +2,7 @@ package vista;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
@@ -14,6 +15,7 @@ public class VentanaUsuario {
 	
 	PanelEditP editp= new PanelEditP();
 	MostrarPerfil mostrarp= new MostrarPerfil();
+	PanelAsignatura asig= new PanelAsignatura();
 	
 	Handler evento= new Handler();
 	
@@ -95,7 +97,8 @@ public class VentanaUsuario {
 			Object control= e.getSource();
 			if (control.equals(editarPerfil)) {
 				
-				nombre.setCenter(mostrarp.getPanel());
+				nombre.setCenter(asig.getPanel());
+				
 			}
 			
 		}
