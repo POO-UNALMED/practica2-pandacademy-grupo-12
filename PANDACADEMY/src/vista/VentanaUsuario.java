@@ -1,18 +1,27 @@
 package vista;
 
+import gestorAplicacion.Academico.Asignatura;
+import gestorAplicacion.Persona.Profesor;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import paneles.ListaProfesores;
 import paneles.PanelEditP;
 
 public class VentanaUsuario {
 	
 	PanelEditP editp= new PanelEditP();
+	Profesor[] ejemploProfesores = new Profesor[] {new Profesor("Ejemplo", "ejemplo", "ejemplo", new Asignatura()),  
+			new Profesor("Ejemplo1", "ejemplo1", "ejemplo1", new Asignatura()),
+			new Profesor("Ejemplo2", "ejemplo2", "ejemplo2", new Asignatura())};
+	
+	ListaProfesores listaP = new ListaProfesores(ejemploProfesores);
 	
 	Handler evento= new Handler();
 	
@@ -71,6 +80,8 @@ public class VentanaUsuario {
 	public VentanaUsuario(){
 		
 		editarPerfil.setOnAction(evento);
+		editarProfesores.setOnAction(evento);
+
 		
 		archivo.getItems().addAll(usuarioMenu,salir);
 		perfil.getItems().addAll(mostrarPerfil,editarPerfil);
@@ -95,6 +106,10 @@ public class VentanaUsuario {
 			if (control.equals(editarPerfil)) {
 				
 				nombre.setCenter(editp.getpanel());
+			}
+			else if (control.equals(editarProfesores)) {
+				nombre.setCenter(new ScrollPane(listaP.getPanel()));
+				
 			}
 			
 		}

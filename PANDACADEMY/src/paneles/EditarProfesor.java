@@ -1,4 +1,4 @@
-package vista;
+package paneles;
 
 import gestorAplicacion.Persona.Profesor;
 import javafx.scene.Scene;
