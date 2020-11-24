@@ -1,13 +1,27 @@
 package vista;
 
+import java.io.File;
+
 import javafx.scene.Scene;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
 public class VentanaUsuario {
+	
+	private static final double AUTO = 0;
+
+
+	static File ruta = new File("");
+	
 	
 	BorderPane nombre = new BorderPane();
 	Scene user=new Scene(nombre,800,700);
@@ -57,6 +71,13 @@ public class VentanaUsuario {
 	VBox barra = new VBox(barraMenu);
 
 	public VentanaUsuario(){
+		
+		BackgroundImage fondo= new BackgroundImage(new Image("/recursos/Frame4.png"),
+		        BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER,
+		          new BackgroundSize(100, 100, true, true, true, false));
+		
+		nombre.setBackground(new Background(fondo));
+	
 		
 		archivo.getItems().addAll(usuarioMenu,salir);
 		perfil.getItems().addAll(mostrarPerfil,editarPerfil);
