@@ -17,15 +17,11 @@ import BaseDatos.*;
 
 public class principal extends Application {
 
-	
-
-	
-	
 	public static Estudiante estudiante = new Estudiante();
 	public static Semestre sa = estudiante.getSemestres().get(estudiante.getSemestres().size() - 1); // ultimo semestre
 	VentanaInicio p = new VentanaInicio();
 	VentanaUsuario p1 = new VentanaUsuario();
-	
+
 	@Override
 	public void start(Stage window) throws Exception {
 
@@ -110,9 +106,11 @@ public class principal extends Application {
 			}
 
 			else if (control.equals(p1.profesores)) {
-				
+
 				ListaProfesores listaP = new ListaProfesores(sa.getProfesorList());
 				ScrollPane s = new ScrollPane(listaP.getPanel());
+				listaP.getPanel().prefWidthProperty().bind(p1.nombre.widthProperty());
+				listaP.getPanel().prefHeightProperty().bind(p1.nombre.heightProperty());
 				s.setPadding(new Insets(10));
 				p1.nombre.setCenter(s);
 
@@ -120,11 +118,11 @@ public class principal extends Application {
 				PanelSemestre semest = new PanelSemestre();
 				p1.nombre.setCenter(semest.getPanel());
 
-			} else if (control.equals(p1.calcularPAPA)){
+			} else if (control.equals(p1.calcularPAPA)) {
 				Alert papa = new Alert(AlertType.INFORMATION);
 				papa.setTitle("P.A.P.A");
 				papa.setHeaderText(null);
-				papa.setContentText("Tu P.A.P.A actual es: "+estudiante.getPAPA());
+				papa.setContentText("Tu P.A.P.A actual es: " + estudiante.getPAPA());
 				papa.showAndWait();
 			}
 

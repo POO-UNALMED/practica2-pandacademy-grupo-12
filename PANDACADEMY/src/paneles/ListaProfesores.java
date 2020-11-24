@@ -3,6 +3,7 @@ package paneles;
 import java.util.ArrayList;
 
 import gestorAplicacion.Persona.Profesor;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -75,8 +76,11 @@ public class ListaProfesores {
 			m.addColumn(1, profesores.getP());
 			profesores.getP().prefWidthProperty().bind(m.widthProperty());
 			profesores.getP().prefHeightProperty().bind(m.heightProperty());
+			profesores.getP().setPadding(new Insets(10));
 			m.setAlignment(Pos.TOP_CENTER);
 			m.setVgap(20);
+			m.prefWidthProperty().bind(todos.widthProperty());
+			m.prefHeightProperty().bind(todos.heightProperty());
 			todos.add(m, 0, i+1);
 			todos.setVgap(20);
 

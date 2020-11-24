@@ -1,8 +1,10 @@
 package Controladores;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 import gestorAplicacion.Academico.Asignatura;
+import gestorAplicacion.Academico.Nota;
 import gestorAplicacion.Academico.Semestre;
 import gestorAplicacion.Persona.Estudiante;
 import gestorAplicacion.Persona.Profesor;
@@ -10,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -59,7 +62,8 @@ public class Fasignatura {
         Button agregarnotas = new Button("AGREGAR NOTAS");
 
         Label Tit = new Label("Nueva Asignatura");
-        Label desc = new Label("EN ESTA VENTANA PODRAS CREAR Y AGRAGAR TU NUEVA ASIGNATURA\nLOS CAMPOS MARCADOS CON * SON OBLIGATORIOS");
+        Label desc = new Label(
+                "EN ESTA VENTANA PODRAS CREAR Y AGRAGAR TU NUEVA ASIGNATURA\nLOS CAMPOS MARCADOS CON * SON OBLIGATORIOS");
         desc.setStyle("-fx-border-color: BLUE;");
         Tit.setStyle("-fx-border-color: BLUE;");
 
@@ -102,6 +106,15 @@ public class Fasignatura {
 
             Asignatura asg = new Asignatura();
 
+            private Node getNodeFromGridPane(GridPane gridPane, int col, int row) {
+                for (Node node : gridPane.getChildren()) {
+                    if (GridPane.getColumnIndex(node) == col && GridPane.getRowIndex(node) == row) {
+                        return node;
+                    }
+                }
+                return null;
+            }
+
             @Override
             public void handle(ActionEvent event) {
                 try {
@@ -112,9 +125,13 @@ public class Fasignatura {
                                 principal.sa));
                     }
                     asg.setDetalles(datosbasicos.getValue("DETALLES"));
-                   /* for(int i =0; i < notas.getChildren().size(); i++){
-                        notas.getColumnConstraints().indexOf();
-                    }*/
+                    int aux = notas.getRowIndex(notas.getChildren().get(notas.getChildren().size() - 1)) + 1;
+                    for (int i = 2; i < aux; i++) {
+                        TextField nota = (TextField) getNodeFromGridPane(notas, 1, i);
+                        TextField porcentaje = (TextField) getNodeFromGridPane(notas, 2, i);
+                        System.out.println(nota.getText() + "   " + porcentaje.getText());
+                        asg.agregarNota(new Nota(Float.valueOf(porcentaje.getText()), Float.valueOf(nota.getText())));
+                    }
                     if (checkAsignatura(principal.estudiante, asg.getNombre(), principal.sa)) {
                         principal.sa.addAsignatura(asg);
                         v.close();
@@ -147,7 +164,6 @@ public class Fasignatura {
                     notas.addColumn(2, new Label("Porcentaje"));
                 }
             }
-
         });
 
         cancelar.setOnAction(e -> {
@@ -221,6 +237,15 @@ public class Fasignatura {
         });
 
         guardar.setOnAction(new EventHandler<ActionEvent>() {
+            
+            private Node getNodeFromGridPane(GridPane gridPane, int col, int row) {
+                for (Node node : gridPane.getChildren()) {
+                    if (GridPane.getColumnIndex(node) == col && GridPane.getRowIndex(node) == row) {
+                        return node;
+                    }
+                }
+                return null;
+            }
 
             @Override
             public void handle(ActionEvent event) {
@@ -232,8 +257,20 @@ public class Fasignatura {
                     if (result.get() == ButtonType.OK) {
                         asg.setCreditos(Integer.valueOf(datosbasicos.getValue("CREDITOS")));
                         asg.setNombre(datosbasicos.getValue("NOMBRE"));
-                        asg.getProfesor().setNombre(datosbasicos.getValue("PROFESOR"));
+                        if (!datosbasicos.getValue("PROFESOR").equals("Nombre del Profesor")) {
+                            asg.setProfesor(new Profesor(datosbasicos.getValue("PROFESOR"), "Correo", "Detalles", asg,
+                                    principal.sa));
+                        }
                         asg.setDetalles(datosbasicos.getValue("DETALLES"));
+                        int aux = notas.getRowIndex(notas.getChildren().get(notas.getChildren().size() - 1)) + 1;
+                        asg.setNotas(new ArrayList<Nota>());
+                        for (int i = 2; i < aux; i++) {
+                            TextField nota = (TextField) getNodeFromGridPane(notas, 1, i);
+                            TextField porcentaje = (TextField) getNodeFromGridPane(notas, 2, i);
+                            System.out.println(nota.getText() + "   " + porcentaje.getText());
+                            asg.agregarNota(
+                                    new Nota(Float.valueOf(porcentaje.getText()), Float.valueOf(nota.getText())));
+                        }
                         v.close();
                     } else {
                         datosbasicos.clean();
@@ -287,7 +324,7 @@ public class Fasignatura {
 
         @Override
         public void handle(ActionEvent event) {
-            notas.addColumn(0, new Label(" PERIODO " + notas.getColumnConstraints().size() + 1));
+            notas.addColumn(0, new Label(" PERIODO " + notas.getRowConstraints().size() + 1));
             TextField n = new TextField("0.0");
             notas.addColumn(1, n);
             TextField p = new TextField("0");
