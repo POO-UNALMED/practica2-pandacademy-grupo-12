@@ -28,10 +28,6 @@ public class principal extends Application {
 	VentanaInicio p = new VentanaInicio();
 	VentanaUsuario p1 = new VentanaUsuario();
 	
-	static {
-		sa.getProfesorList().add(new Profesor("nombre", "correo", "detalles", new Asignatura(4, "ejemplo", ""), sa));
-	}
-
 	@Override
 	public void start(Stage window) throws Exception {
 

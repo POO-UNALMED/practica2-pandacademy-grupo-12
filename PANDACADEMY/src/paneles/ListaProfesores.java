@@ -57,7 +57,7 @@ public class ListaProfesores {
 			}
 			String[] valores = new String[] { ejemploProfesores.get(i).getNombre(),
 					ejemploProfesores.get(i).getCorreo(), ejemploProfesores.get(i).getDetalles(),
-					nombre };
+					ejemploProfesores.get(i).getAsignatura().getNombre() };
 			boolean[] habilitados = new boolean[] { true, true, true, true };
 			profesores = new FieldPanel("Datos", criterios, "valores", valores, habilitados);
 
