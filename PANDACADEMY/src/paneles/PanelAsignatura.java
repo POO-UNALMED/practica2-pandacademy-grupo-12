@@ -31,8 +31,8 @@ public class PanelAsignatura {
 	ArrayList<Button> botonesAsg= new ArrayList<Button>();
 	
 	GridPane prin= new GridPane();
-	GridPane principal= new GridPane();
-	ScrollPane scroll= new ScrollPane(principal);
+	GridPane root= new GridPane();
+	ScrollPane scroll= new ScrollPane(root);
 	
 	VBox cajaBotones= new VBox();  //VBox que contiene las asignaturas
 	
@@ -45,8 +45,8 @@ public class PanelAsignatura {
 	public PanelAsignatura(){
 		
 		
-		principal.setVgap(30);
-		principal.setHgap(20);
+		root.setVgap(30);
+		root.setHgap(20);
 		titulo.setStyle("-fx-border-color: BLUE;");
 		desc.setStyle("-fx-border-color: BLUE;");
 		VBox t= new VBox(titulo);
@@ -97,8 +97,8 @@ public class PanelAsignatura {
 		botones.setSpacing(10);
 		botones.setAlignment(Pos.CENTER);
 		cajaBotones.setSpacing(10);
-		principal.addColumn(0,t,d,cajaBotones,botones);
-		principal.setAlignment(Pos.CENTER);
+		root.addColumn(0,t,d,cajaBotones,botones);
+		root.setAlignment(Pos.CENTER);
 		
 		prin.addColumn(0, scroll);
 		prin.setAlignment(Pos.CENTER);

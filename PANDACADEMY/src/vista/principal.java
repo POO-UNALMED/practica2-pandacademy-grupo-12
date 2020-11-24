@@ -7,7 +7,9 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import paneles.*;
 import BaseDatos.*;
@@ -35,6 +37,7 @@ public class principal extends Application {
 		p1.editarProfesores.setOnAction(evento);
 		p1.mostrarPerfil.setOnAction(evento);
 		p1.asignatura.setOnAction(evento);
+		p1.calcularPAPA.setOnAction(evento);
 
 		// ChangeStage EditTeacher = new ChangeStage(teachers1.scene,window);
 		// p1.editarProfesores.setOnAction(EditTeacher);
@@ -111,6 +114,13 @@ public class principal extends Application {
 			} else if (control.equals(p1.semestres)) {
 				PanelSemestre semest = new PanelSemestre();
 				p1.nombre.setCenter(semest.getPanel());
+
+			} else if (control.equals(p1.calcularPAPA)){
+				Alert papa = new Alert(AlertType.INFORMATION);
+				papa.setTitle("P.A.P.A");
+				papa.setHeaderText(null);
+				papa.setContentText("Tu P.A.P.A actual es: "+estudiante.getPAPA());
+				papa.showAndWait();
 			}
 
 		}
