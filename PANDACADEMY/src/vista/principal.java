@@ -38,6 +38,7 @@ public class principal extends Application {
 		p1.mostrarPerfil.setOnAction(evento);
 		p1.asignatura.setOnAction(evento);
 		p1.calcularPAPA.setOnAction(evento);
+		p1.horario.setOnAction(evento);
 
 		// ChangeStage EditTeacher = new ChangeStage(teachers1.scene,window);
 		// p1.editarProfesores.setOnAction(EditTeacher);
@@ -70,6 +71,9 @@ public class principal extends Application {
 		public void handle(ActionEvent event) {
 			if (event.getEventType().equals(p.boton)) {
 				estudiante = Deserialization.deserializarE();
+				
+				
+				
 			} else if (event.getSource().equals(p1.salir)) {
 				Serialization.serializarE(estudiante);
 			}
@@ -132,6 +136,15 @@ public class principal extends Application {
 				papa.setHeaderText(null);
 				papa.setContentText("Tu P.A.P.A actual es: " + estudiante.getPAPA());
 				papa.showAndWait();
+			}
+			
+			else if (control.equals(p1.horario)) {
+				PanelHorarios horar = new PanelHorarios();
+				horar.getPanel().prefHeightProperty().bind(p1.nombre.heightProperty());
+				horar.getPanel().prefWidthProperty().bind(p1.nombre.widthProperty());
+				p1.nombre.setCenter(horar.getPanel());
+				
+				
 			}
 
 		}
