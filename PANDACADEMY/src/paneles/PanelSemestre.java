@@ -59,8 +59,9 @@ public class PanelSemestre {
 
 			@Override
 			public void handle(ActionEvent event) {
-				int num = 1 + Integer.valueOf(principal.estudiante.getSemestres()
-						.get(principal.estudiante.getSemestres().size() - 1).getNombre().substring(9));
+				//int num = 1 + Integer.valueOf(principal.estudiante.getSemestres()
+						//.get(principal.estudiante.getSemestres().size() - 1).getNombre().substring(9));
+				int num = 1+principal.estudiante.getSemestres().size();
 				principal.estudiante.addSemestre(new Semestre("Semestre " + num));
 				Button boton = new Button("Semestre " + num);
 				boton.prefWidthProperty().bind(cajabot.widthProperty());
