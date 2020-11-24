@@ -4,22 +4,15 @@ import java.util.ArrayList;
 
 import Controladores.Fasignatura;
 import gestorAplicacion.Academico.Asignatura;
-import gestorAplicacion.Academico.Nota;
-import gestorAplicacion.Academico.Semestre;
-import gestorAplicacion.Persona.Estudiante;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 import vista.principal;
 
 public class PanelAsignatura {
@@ -37,7 +30,6 @@ public class PanelAsignatura {
 	Label desc = new Label("EN ESTA SECCION PODRAS VER TUS ASIGNATURAS INSCRITAS,\n AGREGAR NUEVAS ASIGNATURAS Y BORRARLAS");
 	
 	Button agregarasg= new Button("AGREGAR");
-	Button borrarasg= new Button("BORRAR");
 	
 	public PanelAsignatura(){
 		
@@ -58,8 +50,9 @@ public class PanelAsignatura {
 
 			Button boton= new Button(asg.getNombre());
 			
-			HBox asigyprom= new HBox(boton, new Label(String.valueOf(asg.estadoAsignatura())));
-			asigyprom.setSpacing(60);
+			BorderPane asigyprom = new BorderPane();
+			asigyprom.setCenter(new Label(String.valueOf(asg.estadoAsignatura())));
+			asigyprom.setLeft(boton);
 			
 			HBox cajanotas= new HBox(); 
 			cajanotas.setSpacing(15);
@@ -75,15 +68,14 @@ public class PanelAsignatura {
 			VBox cajaAsig= new VBox(); //VBOX QUE CONTIENE TODAS EL BOTON, LAS NOTA Y EL PROMEDIO 
 			cajaAsig.getChildren().addAll(asigyprom,cajanotas);
 			cajaBotones.getChildren().addAll(cajaAsig);
+			cajaBotones.setAlignment(Pos.CENTER);
 			botonesAsg.add(boton); // se añaden los botones de cada asignatura a una lista
 			
 		}
 
-		HBox botones=new HBox(agregarasg,borrarasg);
-		botones.setSpacing(10);
-		botones.setAlignment(Pos.CENTER);
+		agregarasg.prefWidthProperty().bind(root.widthProperty());
 		cajaBotones.setSpacing(10);
-		root.addColumn(0,t,d,cajaBotones,botones);
+		root.addColumn(0,t,d,cajaBotones,agregarasg);
 		root.setAlignment(Pos.CENTER);
 		
 		prin.addColumn(0, scroll);
