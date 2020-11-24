@@ -40,7 +40,7 @@ public class principal extends Application {
 		Handler evento = new Handler();
 		p1.semestres.setOnAction(evento);
 		p1.editarPerfil.setOnAction(evento);
-		p1.editarProfesores.setOnAction(evento);
+		p1.profesores.setOnAction(evento);
 		p1.mostrarPerfil.setOnAction(evento);
 		p1.asignatura.setOnAction(evento);
 		p1.calcularPAPA.setOnAction(evento);
@@ -109,7 +109,7 @@ public class principal extends Application {
 				p1.nombre.setCenter(asig.getPanel());
 			}
 
-			else if (control.equals(p1.editarProfesores)) {
+			else if (control.equals(p1.profesores)) {
 				
 				ListaProfesores listaP = new ListaProfesores(sa.getProfesorList());
 				ScrollPane s = new ScrollPane(listaP.getPanel());

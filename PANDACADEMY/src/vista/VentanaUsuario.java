@@ -51,10 +51,7 @@ public class VentanaUsuario {
 	MenuItem horariosAsesoria = new MenuItem(
 			"Mostrar horarios de asesoría");
 
-	Menu profesores = new Menu("Profesores");
-	MenuItem listaProfesores = new MenuItem("Lista profesores");
-	MenuItem editarProfesores = new MenuItem(
-			"Editar profesores");
+	MenuItem profesores = new MenuItem("Profesores");
 
 	MenuItem semestres = new MenuItem("Semestres");
 	
@@ -76,7 +73,6 @@ public class VentanaUsuario {
 		archivo.getItems().addAll(usuarioMenu,salir);
 		perfil.getItems().addAll(mostrarPerfil,editarPerfil);
 		horario.getItems().addAll(horariosClase,horariosAsesoria);
-		profesores.getItems().addAll(listaProfesores,editarProfesores);
 		//semestres.getItems().addAll(nuevoSemestre,editarSemestre,eliminarSemestre,CambiarSemestre);
 		procesos.getItems().addAll(perfil,asignatura,calcularPAPA,horario,profesores,semestres);
 		ayuda.getItems().add(acerca);
