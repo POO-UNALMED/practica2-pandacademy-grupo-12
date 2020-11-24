@@ -34,7 +34,20 @@ public class ListaProfesores {
 		 * 
 		 * }
 		 */
+		
+		
+		GridPane a = new GridPane();
+		Label editProfe0 = new Label(" EDITAR PROFESOR ");
+		editProfe0.setStyle("-fx-border-color: BLUE;");
+		Label desc0 = new Label(" EN ESTE SECCION PODRAS EDITAR LOS DATOS DE TU PROFESOR ");
+		desc0.setStyle("-fx-border-color: BLUE;");
+		
+		a.addColumn(0, editProfe0, desc0);
 
+		a.setAlignment(Pos.TOP_CENTER);
+		a.setVgap(20);
+		todos.add(a, 0, 0);
+		todos.setHgap(20);
 		for (int i = 0; i < ejemploProfesores.size(); i++) {
 			String[] criterios = new String[] { "Nombre", "Correo", "Detalles", "Asignatura" };
 			String[] valores = new String[] { ejemploProfesores.get(i).getNombre(),
@@ -51,13 +64,15 @@ public class ListaProfesores {
 			Label editProfe = new Label(" EDITAR PROFESOR ");
 			editProfe.setStyle("-fx-border-color: BLUE;");
 			Label desc = new Label(" EN ESTE SECCION PODRAS EDITAR LOS DATOS DE TU PROFESOR ");
-			desc.setStyle("-fx-border-color: BLUE;");
+			desc.setStyle("-fx-border-color: BLUE;"); 
 
-			m.addColumn(0, editProfe, desc, profesores.getP());
+			m.addColumn(1, profesores.getP());
 
 			m.setAlignment(Pos.TOP_CENTER);
 			m.setVgap(20);
-			todos.add(m, 0, i);
+			todos.add(m, 0, i+1);
+			todos.setVgap(20);
+
 			;
 
 		}

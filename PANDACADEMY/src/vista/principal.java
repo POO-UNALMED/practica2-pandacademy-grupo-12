@@ -1,7 +1,9 @@
 package vista;
 
+import gestorAplicacion.Academico.Asignatura;
 import gestorAplicacion.Academico.Semestre;
 import gestorAplicacion.Persona.Estudiante;
+import gestorAplicacion.Persona.Profesor;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -14,10 +16,18 @@ import BaseDatos.*;
 
 public class principal extends Application {
 
+	
+
+	
+	
 	public static Estudiante estudiante = new Estudiante();
 	public static Semestre sa = estudiante.getSemestres().get(estudiante.getSemestres().size() - 1); // ultimo semestre
 	VentanaInicio p = new VentanaInicio();
 	VentanaUsuario p1 = new VentanaUsuario();
+	
+	static {
+		sa.getProfesorList().add(new Profesor("nombre", "correo", "detalles", new Asignatura(4, "ejemplo", ""), sa));
+	}
 
 	@Override
 	public void start(Stage window) throws Exception {
