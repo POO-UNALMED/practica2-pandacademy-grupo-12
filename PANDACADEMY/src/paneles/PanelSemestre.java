@@ -3,7 +3,6 @@ package paneles;
 import java.util.ArrayList;
 
 import gestorAplicacion.Academico.Semestre;
-import gestorAplicacion.Persona.Estudiante;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;

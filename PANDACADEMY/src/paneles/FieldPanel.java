@@ -2,7 +2,6 @@ package paneles;
 
 import java.util.ArrayList;
 
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
@@ -17,17 +16,14 @@ public class FieldPanel extends Pane {
 	
 	private String TituloValores;
 	private String[] valores;
-	private boolean[] habilitados;
-
-
-	public FieldPanel(String TituloCriterios, String[] criterios,String TituloValores, String[] valores, boolean[] habilitados) {
-		panel=new GridPane();
-		this.TituloCriterios=TituloCriterios;
-		this.TituloValores=TituloValores;
+	
+	public FieldPanel(String TituloCriterios, String[] criterios, String TituloValores, String[] valores,
+			boolean[] habilitados) {
+		panel = new GridPane();
+		this.TituloCriterios = TituloCriterios;
+		this.TituloValores = TituloValores;
 		this.criterios = criterios;
-		this.valores=valores;
-		this.habilitados=habilitados;
-		
+		this.valores = valores;
 		panel.addColumn(0, new Label(this.TituloCriterios));
 		panel.addColumn(1, new Label(this.TituloValores));
 		

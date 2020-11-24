@@ -1,21 +1,11 @@
 package vista;
 
-import gestorAplicacion.Academico.Asignatura;
-import gestorAplicacion.Persona.Estudiante;
-import gestorAplicacion.Persona.Profesor;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import paneles.ListaProfesores;
-import paneles.PanelEditP;
-import paneles.*;
 
 public class VentanaUsuario {
 	

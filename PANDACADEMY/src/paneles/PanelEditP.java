@@ -4,7 +4,6 @@ import vista.*;
 
 import java.util.Optional;
 
-import gestorAplicacion.Persona.Estudiante;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -78,7 +77,7 @@ public class PanelEditP {
 				try {
 					Alert aviso = new Alert(AlertType.CONFIRMATION);
 					aviso.setHeaderText(null);
-					aviso.setContentText("¿Quiere guardar los cambios?");
+					aviso.setContentText("Quiere guardar los cambios?");
 					Optional<ButtonType> result = aviso.showAndWait();
 					if (result.get() == ButtonType.OK) {
 						principal.estudiante.setNombre(editarp.getValue("NOMBRE"));

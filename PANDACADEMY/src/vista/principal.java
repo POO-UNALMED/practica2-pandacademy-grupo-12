@@ -1,9 +1,7 @@
 package vista;
 
-import gestorAplicacion.Academico.Asignatura;
 import gestorAplicacion.Academico.Semestre;
 import gestorAplicacion.Persona.Estudiante;
-import gestorAplicacion.Persona.Profesor;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -15,7 +13,6 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import paneles.*;
 import BaseDatos.*;
-import gestorAplicacion.Persona.*;
 
 public class principal extends Application {
 
