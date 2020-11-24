@@ -112,7 +112,7 @@ public class PanelSemestre {
 						boton.setStyle(null);
 						papelera.remove((Button) event.getSource());
 					} else {
-						boton.setStyle("-fx-border-color: RED;");
+						boton.setStyle("-fx-background-color: GRAY;");
 						papelera.add((Button) event.getSource());
 					}
 				}

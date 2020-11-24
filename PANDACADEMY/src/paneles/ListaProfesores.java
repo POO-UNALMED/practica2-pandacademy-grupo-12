@@ -39,7 +39,7 @@ public class ListaProfesores {
 		GridPane a = new GridPane();
 		Label editProfe0 = new Label(" EDITAR PROFESOR ");
 		editProfe0.setStyle("-fx-border-color: BLUE;");
-		Label desc0 = new Label(" EN ESTE SECCION PODRAS EDITAR LOS DATOS DE TU PROFESOR ");
+		Label desc0 = new Label(" EN ESTE SECCION PODRAS VER Y EDITAR LOS DATOS DE TUS PROFESORES ");
 		desc0.setStyle("-fx-border-color: BLUE;");
 		
 		a.addColumn(0, editProfe0, desc0);
@@ -59,11 +59,12 @@ public class ListaProfesores {
 					ejemploProfesores.get(i).getCorreo(), ejemploProfesores.get(i).getDetalles(),
 					ejemploProfesores.get(i).getAsignatura().getNombre() };
 			boolean[] habilitados = new boolean[] { true, true, true, true };
-			profesores = new FieldPanel("Datos", criterios, "valores", valores, habilitados);
+			profesores = new FieldPanel("DATOS", criterios, "", valores, habilitados);
 
 			profesores.getP().setAlignment(Pos.CENTER);
 			profesores.getP().setVgap(10);
 			profesores.getP().setHgap(100);
+			profesores.getP().setStyle("-fx-background-color: GRAY;");
 
 			m = new GridPane(); // panel completo de editarperfil
 			Label editProfe = new Label(" EDITAR PROFESOR ");
@@ -72,7 +73,8 @@ public class ListaProfesores {
 			desc.setStyle("-fx-border-color: BLUE;"); 
 
 			m.addColumn(1, profesores.getP());
-
+			profesores.getP().prefWidthProperty().bind(m.widthProperty());
+			profesores.getP().prefHeightProperty().bind(m.heightProperty());
 			m.setAlignment(Pos.TOP_CENTER);
 			m.setVgap(20);
 			todos.add(m, 0, i+1);
