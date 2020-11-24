@@ -11,6 +11,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 import paneles.*;
 import BaseDatos.*;
 
@@ -77,7 +78,7 @@ public class principal extends Application {
 				Serialization.serializarE(estudiante);
 			}
 			primaryFrame.setScene(newImplements);
-			primaryFrame.setResizable(false);
+			primaryFrame.setResizable(true);
 
 		}
 	}
@@ -99,6 +100,8 @@ public class principal extends Application {
 			} else if (control.equals(p1.mostrarPerfil)) {
 				MostrarPerfil mostrarp = new MostrarPerfil();
 				p1.nombre.setCenter(mostrarp.getPanel());
+				mostrarp.getPanel().prefHeightProperty().bind(p1.nombre.heightProperty());
+				mostrarp.getPanel().prefWidthProperty().bind(p1.nombre.widthProperty());
 			}
 
 			else if (control.equals(p1.asignatura)) {
