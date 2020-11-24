@@ -16,14 +16,15 @@ public class Profesor extends Persona implements Serializable {
   }
 
   public Profesor(String nombre, String correo, String detalles, Asignatura asignatura, Semestre sa) {
-	this(nombre,sa);
+	this.nombre = nombre;
+	sa.addProfesor(this);
     this.correo = correo;
     this.detalles = detalles;
     this.asignatura = asignatura;
   }
 
   public Profesor(String nombre, Semestre sa) {
-    this(sa);
+	sa.addProfesor(this);
     this.nombre = nombre;
   }
 

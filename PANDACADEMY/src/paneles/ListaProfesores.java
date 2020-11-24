@@ -49,10 +49,15 @@ public class ListaProfesores {
 		todos.add(a, 0, 0);
 		todos.setHgap(20);
 		for (int i = 0; i < ejemploProfesores.size(); i++) {
+			
+			String nombre = "";
 			String[] criterios = new String[] { "Nombre", "Correo", "Detalles", "Asignatura" };
+			if(ejemploProfesores.get(i).getNombre() != null) {
+				nombre = ejemploProfesores.get(i).getNombre();
+			}
 			String[] valores = new String[] { ejemploProfesores.get(i).getNombre(),
 					ejemploProfesores.get(i).getCorreo(), ejemploProfesores.get(i).getDetalles(),
-					ejemploProfesores.get(i).getAsignatura().getNombre() };
+					nombre };
 			boolean[] habilitados = new boolean[] { true, true, true, true };
 			profesores = new FieldPanel("Datos", criterios, "valores", valores, habilitados);
 

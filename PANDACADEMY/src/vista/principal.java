@@ -59,7 +59,6 @@ public class principal extends Application {
 	}
 
 	public static void main(String[] args) {
-		sa.addProfesor(new Profesor("carlos", sa));
 		launch(args);
 
 	}
