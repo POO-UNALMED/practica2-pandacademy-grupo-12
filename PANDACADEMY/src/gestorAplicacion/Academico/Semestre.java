@@ -43,6 +43,10 @@ public class Semestre implements Serializable, Comparable<Semestre> {
 		profesores.add(profesor);
 	}
 
+	public void removeProfesor(Profesor profesor) {
+		this.profesores.remove(profesor);
+	}
+
 	public String getNombre() {
 		return nombre;
 	}

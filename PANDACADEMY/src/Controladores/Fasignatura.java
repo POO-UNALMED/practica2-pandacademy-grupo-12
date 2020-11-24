@@ -173,7 +173,7 @@ public class Fasignatura {
 
     public static void PanelEdit(Asignatura asg) {
         Button guardar = new Button("GUARDAR");
-        Button cancelar = new Button("CANCELAR");
+        Button cancelar = new Button("BORRAR");
         guardar.setAlignment(Pos.CENTER_RIGHT);
         Button agregarnotas = new Button("AGREGAR NOTAS");
 
@@ -233,6 +233,8 @@ public class Fasignatura {
         v.show();
 
         cancelar.setOnAction(e -> {
+            principal.sa.removeProfesor(asg.getProfesor());
+            principal.sa.removeAsignatura(asg);
             v.close();
         });
 

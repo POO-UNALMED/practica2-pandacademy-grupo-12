@@ -34,6 +34,9 @@ public class PanelSemestre {
 
 	public PanelSemestre() {
 
+		root.prefWidthProperty().bind(p.widthProperty());
+		root.prefHeightProperty().bind(p.heightProperty());
+
 		p.addColumn(0, scroll);
 		p.setAlignment(Pos.CENTER);
 		scroll.setPadding(new Insets(10));
@@ -70,7 +73,6 @@ public class PanelSemestre {
 		});
 
 		borrar.setOnAction(new EventHandler<ActionEvent>() {
-
 			@Override
 			public void handle(ActionEvent event) {
 				for (Button button : papelera) {
@@ -81,9 +83,7 @@ public class PanelSemestre {
 						}
 					}
 				}
-				// TODO Auto-generated method stub
 			}
-
 		});
 
 		HBox s = new HBox(agregar, borrar);
@@ -117,7 +117,7 @@ public class PanelSemestre {
 					}
 				}
 				if (papelera.isEmpty()) {
-					boton.setStyle("-fx-border-color: RED;");
+					boton.setStyle("-fx-background-color: GRAY;");
 					papelera.add((Button) event.getSource());
 				}
 			} else if (event.getClickCount() == 2) {

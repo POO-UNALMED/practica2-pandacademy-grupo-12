@@ -90,6 +90,9 @@ public class PanelAsignatura {
 		prin.setAlignment(Pos.CENTER);
 		scroll.setPadding(new Insets(10));
 
+		root.prefWidthProperty().bind(prin.widthProperty());
+		root.prefHeightProperty().bind(prin.heightProperty());
+
 	}
 	
 	public GridPane getPanel() {

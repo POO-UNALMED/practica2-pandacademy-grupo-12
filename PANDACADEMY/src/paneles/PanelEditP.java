@@ -67,6 +67,7 @@ public class PanelEditP {
 	public GridPane getPanel() {
 		return m;
 	}
+
 	/**
 	 * Evento del boton aceptar para guardar los datos
 	 */

@@ -92,6 +92,8 @@ public class principal extends Application {
 			if (control.equals(p1.editarPerfil)) {
 				PanelEditP editp = new PanelEditP();
 				p1.nombre.setCenter(editp.getPanel());
+				editp.getPanel().prefHeightProperty().bind(p1.nombre.heightProperty());
+				editp.getPanel().prefWidthProperty().bind(p1.nombre.widthProperty());
 
 			} else if (control.equals(p1.mostrarPerfil)) {
 				MostrarPerfil mostrarp = new MostrarPerfil();
@@ -103,6 +105,8 @@ public class principal extends Application {
 			else if (control.equals(p1.asignatura)) {
 				PanelAsignatura asig = new PanelAsignatura();
 				p1.nombre.setCenter(asig.getPanel());
+				asig.getPanel().prefHeightProperty().bind(p1.nombre.heightProperty());
+				asig.getPanel().prefWidthProperty().bind(p1.nombre.widthProperty());
 			}
 
 			else if (control.equals(p1.profesores)) {
@@ -113,10 +117,14 @@ public class principal extends Application {
 				listaP.getPanel().prefHeightProperty().bind(p1.nombre.heightProperty());
 				s.setPadding(new Insets(10));
 				p1.nombre.setCenter(s);
+				s.prefHeightProperty().bind(p1.nombre.heightProperty());
+				s.prefWidthProperty().bind(p1.nombre.widthProperty());
 
 			} else if (control.equals(p1.semestres)) {
 				PanelSemestre semest = new PanelSemestre();
 				p1.nombre.setCenter(semest.getPanel());
+				semest.getPanel().prefHeightProperty().bind(p1.nombre.heightProperty());
+				semest.getPanel().prefWidthProperty().bind(p1.nombre.widthProperty());
 
 			} else if (control.equals(p1.calcularPAPA)) {
 				Alert papa = new Alert(AlertType.INFORMATION);
