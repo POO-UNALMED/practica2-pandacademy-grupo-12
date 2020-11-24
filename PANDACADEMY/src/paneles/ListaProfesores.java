@@ -8,6 +8,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 
 public class ListaProfesores {
 
@@ -18,6 +19,9 @@ public class ListaProfesores {
 	GridPane todos = new GridPane();
 
 	public ListaProfesores(ArrayList<Profesor> ejemploProfesores) {
+		
+		
+		
 
 		FieldPanel profesores;
 		paneles = new GridPane[ejemploProfesores.size()];
@@ -64,7 +68,7 @@ public class ListaProfesores {
 
 			profesores.getP().setAlignment(Pos.CENTER);
 			profesores.getP().setVgap(10);
-			profesores.getP().setHgap(100);
+			profesores.getP().setHgap(10);
 			profesores.getP().setStyle("-fx-background-color: GRAY;");
 
 			m = new GridPane(); // panel completo de editarperfil
@@ -81,6 +85,18 @@ public class ListaProfesores {
 			m.setVgap(20);
 			m.prefWidthProperty().bind(todos.widthProperty());
 			m.prefHeightProperty().bind(todos.heightProperty());
+			
+			
+			Button guardar= new Button("GUARDAR");   //BOTONES DE GUARDAR Y BORRAR DE CADA PROFESOR
+			guardar.setAlignment(Pos.CENTER_RIGHT);
+			Button borrar= new Button("BORRAR");
+			profesores.getP().addColumn(0, new Label(""));
+			profesores.getP().addColumn(1, new Label(""));
+			profesores.getP().addColumn(0, guardar);
+			profesores.getP().addColumn(1, borrar);
+			
+			
+	
 			todos.add(m, 0, i+1);
 			todos.setVgap(20);
 
