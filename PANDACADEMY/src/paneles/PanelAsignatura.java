@@ -31,8 +31,8 @@ public class PanelAsignatura {
 	ArrayList<Button> botonesAsg= new ArrayList<Button>();
 	
 	GridPane prin= new GridPane();
-	GridPane principal= new GridPane();
-	ScrollPane scroll= new ScrollPane(principal);
+	GridPane root= new GridPane();
+	ScrollPane scroll= new ScrollPane(root);
 	
 	VBox cajaBotones= new VBox();  //VBox que contiene las asignaturas
 	
@@ -45,14 +45,16 @@ public class PanelAsignatura {
 	public PanelAsignatura(){
 		
 		
-		principal.setVgap(30);
-		principal.setHgap(20);
+		root.setVgap(30);
+		root.setHgap(20);
 		titulo.setStyle("-fx-border-color: BLUE;");
 		desc.setStyle("-fx-border-color: BLUE;");
 		VBox t= new VBox(titulo);
 		t.setAlignment(Pos.CENTER);
 		VBox d=new VBox(desc);
 		d.setAlignment(Pos.CENTER);
+		
+		
 		
 		semestreActual.addAsignatura(new Asignatura(4,"calculo"," ninguna"));  
 		semestreActual.addAsignatura(new Asignatura(4,"algebra"," ninguna"));
@@ -63,13 +65,16 @@ public class PanelAsignatura {
 			
 			Asignatura asg= semestreActual.getAsignatura(i);
 			
-			asg.agregarNota(new Nota((float) 4.0,(float) 0.5));
-			asg.agregarNota(new Nota((float) 4.0,(float) 0.5));
-			//asg.agregarNota(new Nota((float) 4.0,(float) 0.5));
+			asg.agregarNota(new Nota((float) 0.5,(float) 4));
+			asg.agregarNota(new Nota((float) 0.25,(float) 3.2));
+			asg.agregarNota(new Nota((float) 0.25,(float) 2));
 			Button boton= new Button(asg.getNombre());
 			
+			HBox asigyprom= new HBox(boton, new Label(String.valueOf(asg.estadoAsignatura())));
+			asigyprom.setSpacing(60);
+			
 			HBox cajanotas= new HBox(); 
-			cajanotas.setSpacing(10);
+			cajanotas.setSpacing(15);
 
 			
 			for (int j=0;j<asg.getNotas().size();j++) {  //añadir las notas
@@ -77,10 +82,13 @@ public class PanelAsignatura {
 				cajanotas.getChildren().add(note);
 			}
 			
-			boton.setOnAction(new NuevaVentana(asg));
-
 			
-			cajaBotones.getChildren().addAll(boton,cajanotas);
+			
+			boton.setOnAction(new NuevaVentana(asg));
+			
+			VBox cajaAsig= new VBox(); //VBOX QUE CONTIENE TODAS EL BOTON, LAS NOTA Y EL PROMEDIO 
+			cajaAsig.getChildren().addAll(asigyprom,cajanotas);
+			cajaBotones.getChildren().addAll(cajaAsig);
 			botonesAsg.add(boton); // se añaden los botones de cada asignatura a una lista
 			
 		}
@@ -89,8 +97,8 @@ public class PanelAsignatura {
 		botones.setSpacing(10);
 		botones.setAlignment(Pos.CENTER);
 		cajaBotones.setSpacing(10);
-		principal.addColumn(0,t,d,cajaBotones,botones);
-		principal.setAlignment(Pos.CENTER);
+		root.addColumn(0,t,d,cajaBotones,botones);
+		root.setAlignment(Pos.CENTER);
 		
 		prin.addColumn(0, scroll);
 		prin.setAlignment(Pos.CENTER);

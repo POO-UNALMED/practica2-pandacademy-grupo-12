@@ -5,20 +5,20 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import vista.principal;
 
 public class MostrarPerfil {
-	
-	Estudiante estudent= new Estudiante();
-	GridPane principal= new GridPane();
+
+	GridPane root= new GridPane();
 	
 	Label titulo = new Label ("MOSTRAR PERFIL");
 	Label desc= new Label("EN ESTA SECCION PODRAS VER TUS DATOS COMO EL NOMBRE, EL CORREO, LA CC,\nEL PLAN DE ESTUDIOS Y TU AVANCE DE CARRERA");
-	Label l1 = new Label("NOMBRE:   " + estudent.getNombre());
+	Label l1 = new Label("NOMBRE:   " + principal.estudiante.getNombre());
 	
-	Label l2 = new Label("DOCUMENTO DE IDENTIDAD:   " + estudent.getDni());
-	Label l3 = new Label("CORREO:   "+ estudent.getCorreo());
-	Label l4 = new Label("PLAN DE ESTUDIOS:   " + estudent.getPlanDeEstudio());
-	Label l5 = new Label ("AVANCE DE CARRERA:   "+ estudent.avanceCarrera());
+	Label l2 = new Label("DOCUMENTO DE IDENTIDAD:   " + principal.estudiante.getDni());
+	Label l3 = new Label("CORREO:   "+ principal.estudiante.getCorreo());
+	Label l4 = new Label("PLAN DE ESTUDIOS:   " + principal.estudiante.getPlanDeEstudio());
+	Label l5 = new Label ("AVANCE DE CARRERA:   "+ principal.estudiante.avanceCarrera());
 	
 	public MostrarPerfil() {
 		titulo.setStyle("-fx-border-color: BLUE;");
@@ -29,15 +29,15 @@ public class MostrarPerfil {
 		v1.setSpacing(15);
 		tit.setSpacing(15);
 		
-		principal.addColumn(0, tit,v1);
-		principal.setAlignment(Pos.CENTER);
-		principal.setVgap(40);
-		principal.setHgap(40);
+		root.addColumn(0, tit,v1);
+		root.setAlignment(Pos.CENTER);
+		root.setVgap(40);
+		root.setHgap(40);
 		
 	}
 	
 	public GridPane	getPanel() {
-		return principal;
+		return root;
 	}
 	
 	

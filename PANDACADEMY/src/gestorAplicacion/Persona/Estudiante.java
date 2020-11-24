@@ -16,7 +16,7 @@ public class Estudiante extends Persona implements Serializable {
   }
   
   public Estudiante() {
-	  semestres.add(new Semestre("semestre 0"));
+	  semestres.add(new Semestre("Semestre 1"));
 }
 
 public boolean asgAprobada(String nombre) {

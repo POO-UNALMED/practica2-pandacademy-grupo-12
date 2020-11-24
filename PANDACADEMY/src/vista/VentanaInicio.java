@@ -52,9 +52,9 @@ public class VentanaInicio {
 		descripcion.setOnAction(Edescrip);
 
 		/**
-		 * creacion del panel principal
+		 * creacion del panel root
 		 */
-		GridPane principal = new GridPane();
+		GridPane root = new GridPane();
 
 		GridPane p1 = new GridPane();
 		p1.setPadding(new Insets(5, 10, 10, 10));
@@ -91,7 +91,7 @@ public class VentanaInicio {
 		p1.add(n, 0, 0);
 		p1.add(inicioApp, 0, 1);
 
-		principal.add(p1, 0, 0);
+		root.add(p1, 0, 0);
 
 		/**
 		 * configuracion del boton inicio
@@ -147,7 +147,7 @@ public class VentanaInicio {
 		fotoAutores.add(Brian, 1, 1);
 
 		autores.add(fotoAutores, 0, 1);
-		principal.add(autores, 1, 0);
+		root.add(autores, 1, 0);
 
 		/**
 		 * mostrar hoja de vida al dar click en una foto
@@ -166,12 +166,12 @@ public class VentanaInicio {
 		/**
 		 * creacion del Borderpane que contiene el gridpane y el menubar
 		 */
-		BorderPane root = new BorderPane();
-		root.setTop(top);
-		root.setCenter(principal);
-		root.setStyle("-fx-background-color: GRAY;"); // color fondo
+		BorderPane root2 = new BorderPane();
+		root2.setTop(top);
+		root2.setCenter(root);
+		root2.setStyle("-fx-background-color: GRAY;"); // color fondo
 
-		scene = new Scene(root, 875, 700);
+		scene = new Scene(root2, 875, 700);
 	}
 
 	/**
@@ -192,9 +192,9 @@ public class VentanaInicio {
         public void handle(ActionEvent e) {
             Alert describe = new Alert(AlertType.INFORMATION);
             describe.setTitle("PANDACADEMY");
-            describe.setHeaderText("Descripcion de la aplicacion:");
+            describe.setHeaderText(null);
             describe.setContentText(LeerArchivo.leer("\\src\\recursos\\textos\\descripcion.txt"));
-            describe.initStyle(StageStyle.UTILITY);
+			describe.initStyle(StageStyle.UTILITY);
             describe.showAndWait();
         }
 
