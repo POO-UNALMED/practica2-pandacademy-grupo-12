@@ -18,7 +18,7 @@ public class MostrarPerfil {
 	Label l2 = new Label("DOCUMENTO DE IDENTIDAD:   " + principal.estudiante.getDni());
 	Label l3 = new Label("CORREO:   " + principal.estudiante.getCorreo());
 	Label l4 = new Label("PLAN DE ESTUDIOS:   " + principal.estudiante.getPlanDeEstudio());
-	Label l5 = new Label("AVANCE DE CARRERA:   " + principal.estudiante.avanceCarrera());
+	Label l5 = new Label("AVANCE DE CARRERA:   " + principal.estudiante.avanceCarrera()+"%");
 
 	public MostrarPerfil() {
 		titulo.setStyle("-fx-border-color: BLUE;");
