@@ -268,7 +268,6 @@ public class Fasignatura {
                         for (int i = 2; i < aux; i++) {
                             TextField nota = (TextField) getNodeFromGridPane(notas, 1, i);
                             TextField porcentaje = (TextField) getNodeFromGridPane(notas, 2, i);
-                            System.out.println(nota.getText() + "   " + porcentaje.getText());
                             asg.agregarNota(
                                     new Nota(Float.valueOf(porcentaje.getText())/100, Float.valueOf(nota.getText())));
                         }
