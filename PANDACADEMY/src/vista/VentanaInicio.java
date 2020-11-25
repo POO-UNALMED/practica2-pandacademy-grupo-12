@@ -135,7 +135,7 @@ public class VentanaInicio {
 		view3.setFitWidth(200);
 		Button jhonatan = new Button("", view3);
 
-		Image foto4 = new Image(getClass().getResourceAsStream("/recursos/fotos/jump.jpg"));
+		Image foto4 = new Image(getClass().getResourceAsStream("/recursos/fotos/jump.png"));
 		ImageView view4 = new ImageView(foto4);
 		view4.setFitHeight(200);
 		view4.setFitWidth(200);
