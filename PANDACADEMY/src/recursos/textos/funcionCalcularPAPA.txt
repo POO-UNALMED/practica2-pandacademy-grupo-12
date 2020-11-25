@@ -1,0 +1,3 @@
+La funcionalidad "Calcular PAPA" te muestra el Promedio Académico Ponderado Acumulado del estudiante en una alerta. Si no hay asignaturas agregadas, la función te devuelve el valor "NaN".
+
+Puedes acceder a la funcionalidad en la pestaña Procesos y consultas.

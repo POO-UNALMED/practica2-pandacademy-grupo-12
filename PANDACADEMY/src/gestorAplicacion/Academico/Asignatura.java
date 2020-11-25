@@ -130,4 +130,9 @@ public float promedio() {
 	return cont;
 
 	}
+
+public void setNotas(ArrayList<Nota> arrayList) {
+  notas = arrayList;
+}
+	  
 }

@@ -7,25 +7,25 @@ import gestorAplicacion.Horario;
 import gestorAplicacion.Academico.*;
 
 public class Profesor extends Persona implements Serializable {
-  private ArrayList<Horario> asesoria = new ArrayList<>(); //Lista de horarios en los que el profesor puede atender.
+  private ArrayList<Horario> asesoria = new ArrayList<>(); // Lista de horarios en los que el profesor puede atender.
   private Asignatura asignatura;
   private String detalles;
 
-  public Profesor() {
-    Semestre.profesores.add(this);
+  public Profesor(Semestre sa) {
+    sa.addProfesor(this);
   }
 
-  public Profesor(String nombre, String correo, String detalles, Asignatura asignatura) {
-	this(nombre);
+  public Profesor(String nombre, String correo, String detalles, Asignatura asignatura, Semestre sa) {
+    this.nombre = nombre;
+    sa.addProfesor(this);
     this.correo = correo;
     this.detalles = detalles;
     this.asignatura = asignatura;
-    Semestre.profesores.add(this);
   }
 
-  public Profesor(String nombre) {
+  public Profesor(String nombre, Semestre sa) {
+    sa.addProfesor(this);
     this.nombre = nombre;
-    Semestre.profesores.add(this);
   }
 
   public void setAsignatura(Asignatura asignatura) {
@@ -63,28 +63,32 @@ public class Profesor extends Persona implements Serializable {
 
   /**
    * Busca un profesor en la lista de profesores de los semestres.
+   * 
    * @param nombre Nombre del profesor
-   * @return Si existe el objeto, devuelve el objeto Profesor correspondiente. En caso contrario, devuelve <b>null</b>
+   * @return Si existe el objeto, devuelve el objeto Profesor correspondiente. En
+   *         caso contrario, devuelve <b>null</b>
    */
-  public static Profesor Buscar(String nombre) {
-    for (int i = 0; i < Semestre.profesores.size(); i++) {
-      Profesor p = Semestre.profesores.get(i);
+  public static Profesor Buscar(String nombre, Semestre sa) {
+    for (int i = 0; i < sa.getProfesorList().size(); i++) {
+      Profesor p = sa.getProfesorList().get(i);
       if (p.getNombre().equalsIgnoreCase(nombre)) {
         return p;
       }
     }
     return null;
   }
+
   /**
    * Información del profesor.
-   * @return Información básica del profesor (Nombre, Correo, Asignatura, Detalles)
+   * 
+   * @return Información básica del profesor (Nombre, Correo, Asignatura,
+   *         Detalles)
    */
   public String toString() {
     String comp = "NOMBRE: " + this.nombre + "\n" + "CORREO: " + this.correo + "\n" + "ASIGNATURA: ";
     if (this.asignatura != null) {
       comp = comp + this.asignatura.getNombre() + "\n" + "DETALLES: " + this.detalles;
-    }
-    else{
+    } else {
       comp = comp + "\n" + "DETALLES: " + this.detalles;
     }
     return comp;
