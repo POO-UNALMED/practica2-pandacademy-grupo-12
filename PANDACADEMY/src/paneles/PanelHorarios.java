@@ -25,8 +25,10 @@ public class PanelHorarios {
 	public PanelHorarios () {
 		
 		Asignatura sss= new Asignatura();
-		sss.setNombre("calculo");
+		sss.setNombre("algebra");
 		sa.addHorario(new Horario("martes","6:00", "8:00", sss));
+
+		
 		
 		hora.prefWidthProperty().bind(prin.widthProperty());
 		
@@ -96,6 +98,11 @@ public class PanelHorarios {
 	        FieldPanel datosbasicos = new FieldPanel("DATOS", criterios, "", valores, habilitados);
 			
 			asg.setOnAction(event ->{
+				Button guardar= new Button ("GUARDAR");
+				Button borrar = new Button ("BORRAR");
+				HBox butons= new HBox(guardar,borrar);
+				butons.setSpacing(5);
+				butons.setAlignment(Pos.CENTER);
 				
 				Label tit= new Label("EDITAR HORARIO");
 				tit.setStyle("-fx-border-color: BLUE;");
@@ -103,8 +110,9 @@ public class PanelHorarios {
 				desc.setStyle("-fx-border-color: BLUE;");
 				
 		        datosbasicos.getP().setVgap(10);
+		        datosbasicos.getP().setHgap(10);
 		        datosbasicos.getP().setAlignment(Pos.CENTER);
-		        VBox total= new VBox(tit,desc,datosbasicos.getP());
+		        VBox total= new VBox(tit,desc,datosbasicos.getP(),butons);
 		        total.setAlignment(Pos.CENTER);
 		        total.setSpacing(10);
 		        
