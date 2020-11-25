@@ -77,6 +77,8 @@ public class principal extends Application {
 		public void handle(ActionEvent event) {
 			if (event.getSource().equals(SceneInicio.boton)) {
 				principal.estudiante = Deserialization.deserializarE();
+				PanelInicio inicio = new PanelInicio();
+				SceneUser.nombre.setCenter(inicio.getPanel());
 				primaryFrame.setScene(SceneUser.user);
 				primaryFrame.setResizable(false);
 

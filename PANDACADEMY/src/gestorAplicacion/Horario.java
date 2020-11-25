@@ -3,6 +3,7 @@ package gestorAplicacion;
 import java.io.Serializable;
 
 import gestorAplicacion.Academico.Asignatura;
+
 /**
  * Objecto que representa un horario y guarda sus datos relevantes para su uso
  * 
@@ -44,8 +45,21 @@ public class Horario implements Serializable {
     String horario = dia + "\n" + horaInicio + "\n" + horaFinal;
     return horario;
   }
+
   public Asignatura getAsignatura() {
-	  return this.asignatura;
+    return this.asignatura;
+  }
+
+  public void setDia(String dia2) {
+    dia = dia2;
+  }
+
+  public void setInicio(String h1) {
+    horaInicio = h1;
+  }
+
+  public void setFinal(String h2) {
+    horaFinal = h2;
   }
 
 }
