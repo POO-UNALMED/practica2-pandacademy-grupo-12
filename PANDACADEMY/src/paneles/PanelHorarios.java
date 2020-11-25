@@ -3,12 +3,15 @@ package paneles;
 import gestorAplicacion.Horario;
 import gestorAplicacion.Academico.Asignatura;
 import gestorAplicacion.Academico.Semestre;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 public class PanelHorarios {
 	
@@ -22,8 +25,18 @@ public class PanelHorarios {
 	public PanelHorarios () {
 		
 		Asignatura sss= new Asignatura();
-		sss.setNombre("calculo");
+		sss.setNombre("algebra");
 		sa.addHorario(new Horario("martes","6:00", "8:00", sss));
+		sa.addHorario(new Horario("martes","6:00", "8:00", sss));
+		sa.addHorario(new Horario("martes","6:00", "8:00", sss));
+		sa.addHorario(new Horario("martes","6:00", "8:00", sss));
+		sa.addHorario(new Horario("martes","6:00", "8:00", sss));
+		sa.addHorario(new Horario("martes","6:00", "8:00", sss));
+		sa.addHorario(new Horario("martes","6:00", "8:00", sss));
+		sa.addHorario(new Horario("martes","6:00", "8:00", sss));
+		sa.addHorario(new Horario("martes","6:00", "8:00", sss));
+
+		
 		
 		hora.prefWidthProperty().bind(prin.widthProperty());
 		
@@ -86,6 +99,41 @@ public class PanelHorarios {
 				hora.addColumn(5, asg);
 			}
 			
+	        String[] criterios = new String[] { "ASIGNATURA","DIA", "HORA INICIO", "HORA FINAL"};
+	        String[] valores = new String[] { sa.getHorario(i).getAsignatString(),sa.getHorario(i).getDia(),sa.getHorario(i).getInicio(),
+	                sa.getHorario(i).getFinal() };
+	        boolean[] habilitados = new boolean[] { false, true, true, true };
+	        FieldPanel datosbasicos = new FieldPanel("DATOS", criterios, "", valores, habilitados);
+			
+			asg.setOnAction(event ->{
+				Button guardar= new Button ("GUARDAR");
+				Button borrar = new Button ("BORRAR");
+				HBox butons= new HBox(guardar,borrar);
+				butons.setSpacing(5);
+				butons.setAlignment(Pos.CENTER);
+				
+				Label tit= new Label("EDITAR HORARIO");
+				tit.setStyle("-fx-border-color: BLUE;");
+				Label desc= new Label("AQUI PODRAS MODIFICAR EL HORARIO DE CLASE DE LA ASIGNATURA");
+				desc.setStyle("-fx-border-color: BLUE;");
+				
+		        datosbasicos.getP().setVgap(10);
+		        datosbasicos.getP().setHgap(10);
+		        datosbasicos.getP().setAlignment(Pos.CENTER);
+		        VBox total= new VBox(tit,desc,datosbasicos.getP(),butons);
+		        total.setAlignment(Pos.CENTER);
+		        total.setSpacing(10);
+		        
+		        total.setPadding(new Insets(10));
+				Scene edit= new Scene(total);
+				
+				Stage edit1 = new Stage();
+				edit1.setScene(edit);
+				edit1.setResizable(false);
+				edit1.show();
+			
+			});
+			
 			
 		
 		}
@@ -99,7 +147,8 @@ public class PanelHorarios {
 		prin.setAlignment(Pos.TOP_CENTER);
 		hora.setAlignment(Pos.CENTER);
 		prin.setSpacing(10);
-		prin.getChildren().addAll(titulo,desc,hora);
+		prin.getChildren().addAll(titulo,desc,hora,new Button ("AGREGAR HORARIO"));
+		prin.setPadding(new Insets(10));
 
 		
 		
