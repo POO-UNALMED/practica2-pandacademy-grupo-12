@@ -44,6 +44,8 @@ public class principal extends Application {
 		p1.asignatura.setOnAction(evento);
 		p1.calcularPAPA.setOnAction(evento);
 		p1.horario.setOnAction(evento);
+		p1.acerca.setOnAction(evento);
+		p1.usuarioMenu.setOnAction(evento);
 
 		// ChangeStage EditTeacher = new ChangeStage(teachers1.scene,window);
 		// p1.editarProfesores.setOnAction(EditTeacher);
@@ -153,15 +155,14 @@ public class principal extends Application {
 				horar.getPanel().prefWidthProperty().bind(p1.nombre.widthProperty());
 				p1.nombre.setCenter(horar.getPanel());
 
-			} else if(control.equals(p1.usuarioMenu)){
-				p1.nombre.setCenter(null);
-			} else if(control.equals(p1.acerca)){
+			} else if (control.equals(p1.acerca)) {
 				Alert aviso = new Alert(AlertType.INFORMATION);
 				aviso.setHeaderText("Creadores");
-				aviso.setContentText("Cristian Londoño Franco\nJuan Pablo Gutierrez Tamaño\nJhonatan Urrego Zea\nBrian Steven Gutierrez Prieto");
+				aviso.setContentText(
+						"Cristian Londoño Franco\nJuan Pablo Gutierrez Tamaño\nJhonatan Urrego Zea\nBrian Steven Gutierrez Prieto");
 				aviso.initStyle(StageStyle.UTILITY);
 				aviso.showAndWait();
-			} else if(control.equals(p1.usuarioMenu)){
+			} else if (control.equals(p1.usuarioMenu)) {
 				PanelInicio inicio = new PanelInicio();
 				p1.nombre.setCenter(inicio.getPanel());
 			}

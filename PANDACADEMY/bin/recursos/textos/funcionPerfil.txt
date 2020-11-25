@@ -1,0 +1,11 @@
+Perfil tiene dos funcionalidades:
+
+Mostrar perfil - Muestra la información del perfil del estudiante (usuario)
+
+Editar Perfil - Permite al usuario modificar su información. Se debe llenar los siguientes campos:
+
+	NOMBRE, DOCUMENTO DE IDENTIDAD, CORREO, PLAN DE ESTUDIOS, CREDITOS REQUERIDOS
+
+Después de llenar los campos, se da click en "Aceptar" para guardar los cambios.
+
+Puedes acceder a las funcionalidades en la pestaña Procesos y consultas > Perfil
