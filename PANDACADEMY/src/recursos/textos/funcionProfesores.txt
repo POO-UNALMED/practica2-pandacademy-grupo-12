@@ -1,5 +1,5 @@
-Esta funcionalidad te permite editar la informaciÃ³n de un profesor existente (para tener un profesor registrado, debe tener una asignatura).
+Esta funcionalidad te permite editar la información de un profesor existente (para tener un profesor registrado, debe tener una asignatura).
 
-Para guardar la informaciÃ³n editada de un profesor o borrarlo, se le da a sus respectivos botones ("GUARDAR" o "BORRAR").
+Para guardar la información editada de un profesor o borrarlo, se le da a sus respectivos botones ("GUARDAR" o "BORRAR").
 
-Puedes acceder a la funcionalidad en la pestaÃ±a Procesos y consultas.
+Puedes acceder a la funcionalidad en la pestaña Procesos y consultas.

@@ -1,7 +1,7 @@
-En esta funcionalidad, puedes cambiar de semestre acadÃ©mico.
+En esta funcionalidad, puedes cambiar de semestre académico.
 
-Para agregar un semestre, das click en el botÃ³n "AGREGAR". Para borrar uno, seleccionas el semestre y le das click en el botÃ³n "BORRAR".
+Para agregar un semestre, das click en el botón "AGREGAR". Para borrar uno, seleccionas el semestre y le das click en el botón "BORRAR".
 
-Al clickear un semestre, cambias toda la informaciÃ³n del programa a la del semestre seleccionado.
+Al clickear un semestre, cambias toda la información del programa a la del semestre seleccionado.
 
-Puedes acceder a la funcionalidad en la pestaÃ±a Procesos y consultas.
+Puedes acceder a la funcionalidad en la pestaña Procesos y consultas.
