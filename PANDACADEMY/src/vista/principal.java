@@ -12,6 +12,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import paneles.ListaProfesores;
 import paneles.MostrarPerfil;
 import paneles.PanelAsignatura;
@@ -154,6 +155,15 @@ public class principal extends Application {
 
 			} else if(control.equals(p1.usuarioMenu)){
 				p1.nombre.setCenter(null);
+			} else if(control.equals(p1.acerca)){
+				Alert aviso = new Alert(AlertType.INFORMATION);
+				aviso.setHeaderText("Creadores");
+				aviso.setContentText("Cristian Londoño Franco\nJuan Pablo Gutierrez Tamaño\nJhonatan Urrego Zea\nBrian Steven Gutierrez Prieto");
+				aviso.initStyle(StageStyle.UTILITY);
+				aviso.showAndWait();
+			} else if(control.equals(p1.usuarioMenu)){
+				PanelInicio inicio = new PanelInicio();
+				p1.nombre.setCenter(inicio.getPanel());
 			}
 		}
 

@@ -97,7 +97,7 @@ public class Fhorarios {
                     h2 = datosbasicos.getValue("HORA FINAL");
                     if (checkHorario(dia, h1, h2, principal.sa)) {
                         principal.sa.addHorario(new Horario(dia, h1, h2, asg));
-                        aviso.setContentText("Nueva Horario creado");
+                        aviso.setContentText("Nuevo Horario creado");
                         aviso.showAndWait();
                         edit1.close();
                     } else {

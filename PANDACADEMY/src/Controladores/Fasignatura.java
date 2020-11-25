@@ -68,7 +68,7 @@ public class Fasignatura {
         Tit.setStyle("-fx-border-color: BLUE;");
 
         String[] criterios = new String[] { "CREDITOS*", "NOMBRE*", "PROFESOR", "DETALLES" };
-        String[] valores = new String[] { "Creditos", "Nombre de la Asignarura", "Nombre del Profesor", "Detalles" };
+        String[] valores = new String[] { "Creditos", "Nombre de la Asignatura", "Nombre del Profesor", "Detalles" };
         boolean[] habilitados = new boolean[] { true, true, true, true };
         FieldPanel datosbasicos = new FieldPanel("DATOS BASICOS", criterios, "", valores, habilitados);
         datosbasicos.getP().setVgap(10);
