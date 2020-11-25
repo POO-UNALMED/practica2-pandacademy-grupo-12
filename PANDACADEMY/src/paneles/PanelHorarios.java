@@ -2,8 +2,6 @@ package paneles;
 
 import Controladores.Fhorarios;
 import gestorAplicacion.Horario;
-import gestorAplicacion.Academico.Asignatura;
-import gestorAplicacion.Academico.Semestre;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -57,7 +55,6 @@ public class PanelHorarios {
 		
 		for (int i =0; i< principal.sa.getHorarios().size(); i++) {
 			Horario h = principal.sa.getHorario(i);
-			System.out.println(h.toString());
 			Button asg= new Button(h.getAsignatura().getNombre().toUpperCase() + "\n \n" + 
 					h.getInicio() + "\n"+ h.getFinal());
 			asg.prefWidthProperty().bind(hora.widthProperty());
