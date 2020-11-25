@@ -27,6 +27,14 @@ public class PanelHorarios {
 		Asignatura sss= new Asignatura();
 		sss.setNombre("algebra");
 		sa.addHorario(new Horario("martes","6:00", "8:00", sss));
+		sa.addHorario(new Horario("martes","6:00", "8:00", sss));
+		sa.addHorario(new Horario("martes","6:00", "8:00", sss));
+		sa.addHorario(new Horario("martes","6:00", "8:00", sss));
+		sa.addHorario(new Horario("martes","6:00", "8:00", sss));
+		sa.addHorario(new Horario("martes","6:00", "8:00", sss));
+		sa.addHorario(new Horario("martes","6:00", "8:00", sss));
+		sa.addHorario(new Horario("martes","6:00", "8:00", sss));
+		sa.addHorario(new Horario("martes","6:00", "8:00", sss));
 
 		
 		
@@ -125,6 +133,8 @@ public class PanelHorarios {
 				edit1.show();
 			
 			});
+			
+			
 		
 		}
 		
@@ -137,7 +147,8 @@ public class PanelHorarios {
 		prin.setAlignment(Pos.TOP_CENTER);
 		hora.setAlignment(Pos.CENTER);
 		prin.setSpacing(10);
-		prin.getChildren().addAll(titulo,desc,hora);
+		prin.getChildren().addAll(titulo,desc,hora,new Button ("AGREGAR HORARIO"));
+		prin.setPadding(new Insets(10));
 
 		
 		
