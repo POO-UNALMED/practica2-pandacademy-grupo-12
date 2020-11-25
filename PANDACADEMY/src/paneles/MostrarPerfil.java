@@ -23,22 +23,12 @@ public class MostrarPerfil {
 	public MostrarPerfil() {
 		titulo.setStyle("-fx-border-color: BLUE;");
 		desc.setStyle("-fx-border-color: BLUE;");
-		VBox tit = new VBox(titulo, desc);
+		VBox tit = new VBox(titulo,desc);
+		tit.setSpacing(20);
 		tit.setAlignment(Pos.CENTER);
-		titulo.prefHeightProperty().bind(tit.heightProperty());
-		titulo.prefWidthProperty().bind(tit.widthProperty());
-		desc.prefHeightProperty().bind(tit.heightProperty());
-		desc.prefWidthProperty().bind(tit.widthProperty());
 		VBox v1 = new VBox(l1, l2, l3, l4, l5);
 		v1.setSpacing(15);
 		v1.setAlignment(Pos.CENTER);
-		tit.setSpacing(15);
-
-		tit.prefHeightProperty().bind(root.heightProperty());
-		tit.prefWidthProperty().bind(root.widthProperty());
-
-		v1.prefHeightProperty().bind(root.heightProperty());
-		v1.prefWidthProperty().bind(root.widthProperty());
 
 		root.addColumn(0, tit, v1);
 		root.setAlignment(Pos.CENTER);

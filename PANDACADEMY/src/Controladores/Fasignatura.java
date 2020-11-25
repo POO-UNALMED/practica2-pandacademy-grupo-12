@@ -30,7 +30,7 @@ import vista.principal;
 
 public class Fasignatura {
 
-    public static boolean checkAsignatura(Estudiante est, String nombre, Semestre sa) {
+    public static boolean checkAsignatura(Estudiante est, String nombre) {
         Estudiante e = est;
         boolean aux = true;
         for (int i = 0; i < e.getSemestres().size(); i++) {
@@ -44,8 +44,8 @@ public class Fasignatura {
             }
         }
         if (aux) {
-            for (int i = 0; i < sa.getAsignaturas().size(); i++) {
-                if (sa.getAsignatura(i).getNombre().equalsIgnoreCase(nombre)) {
+            for (int i = 0; i < principal.sa.getAsignaturas().size(); i++) {
+                if (principal.sa.getAsignatura(i).getNombre().equalsIgnoreCase(nombre)) {
                     aux = false;
                     break;
                 }
@@ -129,10 +129,9 @@ public class Fasignatura {
                     for (int i = 2; i < aux; i++) {
                         TextField nota = (TextField) getNodeFromGridPane(notas, 1, i);
                         TextField porcentaje = (TextField) getNodeFromGridPane(notas, 2, i);
-                        System.out.println(nota.getText() + "   " + porcentaje.getText());
                         asg.agregarNota(new Nota(Float.valueOf(porcentaje.getText())/100, Float.valueOf(nota.getText())));
                     }
-                    if (checkAsignatura(principal.estudiante, asg.getNombre(), principal.sa)) {
+                    if (checkAsignatura(principal.estudiante, asg.getNombre())) {
                         principal.sa.addAsignatura(asg);
                         v.close();
 
@@ -161,7 +160,7 @@ public class Fasignatura {
                     notas.addColumn(2, new Label(""));
                     notas.addColumn(0, new Label("Periodos"));
                     notas.addColumn(1, new Label("Notas"));
-                    notas.addColumn(2, new Label("Porcentaje"));
+                    notas.addColumn(2, new Label("Porcentaje (%)"));
                 }
             }
         });
@@ -302,7 +301,7 @@ public class Fasignatura {
                     notas.addColumn(2, new Label(""));
                     notas.addColumn(0, new Label("Periodos"));
                     notas.addColumn(1, new Label("Notas"));
-                    notas.addColumn(2, new Label("Porcentaje"));
+                    notas.addColumn(2, new Label("Porcentaje (%)"));
                     for (int i = 0; i < asg.getNotas().size(); i++) {
 
                         notas.addColumn(0, new Label(" PERIODO " + i));
