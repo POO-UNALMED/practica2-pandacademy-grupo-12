@@ -23,33 +23,33 @@ public class PanelHorarios {
 		
 		hora.prefWidthProperty().bind(prin.widthProperty());
 		
-		Label lunes = new Label("lunes");
+		Label lunes = new Label("LUNES");
 		hora.addColumn(0, lunes);
 		lunes.prefWidthProperty().bind(hora.prefWidthProperty());
 		lunes.setAlignment(Pos.CENTER);
 		
-		Label martes = new Label("martes");
+		Label martes = new Label("MARTES");
 		hora.addColumn(1, martes);
 		martes.prefWidthProperty().bind(hora.prefWidthProperty());
 		martes.setAlignment(Pos.CENTER);
 		
-		Label miercoles = new Label("miercoles");
+		Label miercoles = new Label("MIERCOLES");
 		hora.addColumn(2, miercoles);
 		miercoles.prefWidthProperty().bind(hora.prefWidthProperty());
 		miercoles.setAlignment(Pos.CENTER);
 		
 		
-		Label jueves = new Label("jueves");
+		Label jueves = new Label("JUEVES");
 		hora.addColumn(3, jueves);
 		jueves.prefWidthProperty().bind(hora.prefWidthProperty());
 		jueves.setAlignment(Pos.CENTER);
 		
-		Label viernes = new Label("viernes");
+		Label viernes = new Label("VIERNES");
 		hora.addColumn(4, viernes);
 		viernes.prefWidthProperty().bind(hora.prefWidthProperty());
 		viernes.setAlignment(Pos.CENTER);
 		
-		Label sabado = new Label("sabado");
+		Label sabado = new Label("SABADO");
 		hora.addColumn(5, sabado);
 		sabado.prefWidthProperty().bind(hora.prefWidthProperty());
 		sabado.setAlignment(Pos.CENTER);
@@ -57,29 +57,29 @@ public class PanelHorarios {
 		
 		for (int i =0; i< principal.sa.getHorarios().size(); i++) {
 			Horario h = principal.sa.getHorario(i);
-			Button asg= new Button(h.getAsignatura().getNombre() + "\n \n" + 
+			System.out.println(h.toString());
+			Button asg= new Button(h.getAsignatura().getNombre().toUpperCase() + "\n \n" + 
 					h.getInicio() + "\n"+ h.getFinal());
 			asg.prefWidthProperty().bind(hora.widthProperty());
 			asg.setPrefHeight(100);
 			asg.setAlignment(Pos.CENTER);
 			asg.setOnAction(event -> Fhorarios.EditHorario(h, asg, hora));
-			if (principal.sa.getHorario(i).getDia()=="lunes") {
-				hora.addColumn(0, asg);
-				
+			if (h.getDia().equalsIgnoreCase("Lunes")) {
+				hora.addColumn(0, asg);	
 			}
-			else if (principal.sa.getHorario(i).getDia()=="martes") {
+			else if (h.getDia().equalsIgnoreCase("martes")) {
 				hora.addColumn(1, asg);
 			}
-			else if (principal.sa.getHorario(i).getDia()=="miercoles") {
+			else if (h.getDia().equalsIgnoreCase("miercoles")) {
 				hora.addColumn(2, asg);
 			}
-			else if (principal.sa.getHorario(i).getDia()=="jueves") {
+			else if (h.getDia().equalsIgnoreCase("jueves")) {
 				hora.addColumn(3, asg);
 			}
-			else if (principal.sa.getHorario(i).getDia()=="viernes") {
+			else if (h.getDia().equalsIgnoreCase("viernes")) {
 				hora.addColumn(4, asg);
 			}
-			else if (principal.sa.getHorario(i).getDia()=="sabado") {
+			else if (h.getDia().equalsIgnoreCase("sabado")) {
 				hora.addColumn(5, asg);
 			}
 		}
