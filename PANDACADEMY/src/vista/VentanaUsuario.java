@@ -17,11 +17,6 @@ import javafx.scene.layout.VBox;
 
 public class VentanaUsuario {
 	
-	private static final double AUTO = 0;
-
-
-	static File ruta = new File("");
-	
 	
 	BorderPane nombre = new BorderPane();
 	Scene user=new Scene(nombre,800,700);
@@ -71,12 +66,6 @@ public class VentanaUsuario {
 	VBox barra = new VBox(barraMenu);
 
 	public VentanaUsuario(){
-		
-		BackgroundImage fondo= new BackgroundImage(new Image("/recursos/Frame4.png"),
-		        BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER,
-		          new BackgroundSize(100, 100, true, true, true, false));
-		
-		nombre.setBackground(new Background(fondo));
 	
 		
 		archivo.getItems().addAll(usuarioMenu,salir);
