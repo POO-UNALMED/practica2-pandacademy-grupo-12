@@ -1,7 +1,12 @@
 package paneles;
 
+import Controladores.LeerArchivo;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -17,6 +22,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
+import javafx.stage.StageStyle;
 
 public class PanelInicio {
 	
@@ -74,7 +80,53 @@ public class PanelInicio {
 		botonProfesores.setStyle("-fx-font-size:15");
 		botonSemestres.setStyle("-fx-font-size:15");
 		
+		class Reglas implements EventHandler<ActionEvent>{
+
+			public void handle(ActionEvent event) {
+				Object control = event.getSource();
+				Alert aviso = new Alert(AlertType.INFORMATION);
+				if(control.equals(botonPerfil)){
+					aviso.setHeaderText("Instrucción para Perfil");
+					aviso.setContentText(LeerArchivo.leer("\\src\\recursos\\textos\\funcionPerfil.txt"));
+					aviso.initStyle(StageStyle.UTILITY);
+					aviso.showAndWait();
+				} else if(control.equals(botonAsignaturas)){
+					aviso.setHeaderText("Instrucción para Asignaturas");
+					aviso.setContentText(LeerArchivo.leer("\\src\\recursos\\textos\\funcionAsignaturas.txt"));
+					aviso.initStyle(StageStyle.UTILITY);
+					aviso.showAndWait();
+				} else if(control.equals(botonCalcularPAPA)){
+					aviso.setHeaderText("Instrucción para Calcular PAPA");
+					aviso.setContentText(LeerArchivo.leer("\\src\\recursos\\textos\\funcionCalcularPAPA.txt"));
+					aviso.initStyle(StageStyle.UTILITY);
+					aviso.showAndWait();
+				} else if(control.equals(botonHorario)){
+					aviso.setHeaderText("Instrucción para Horario");
+					aviso.setContentText(LeerArchivo.leer("\\src\\recursos\\textos\\funcionHorario.txt"));
+					aviso.initStyle(StageStyle.UTILITY);
+					aviso.showAndWait();
+				} else if(control.equals(botonProfesores)){
+					aviso.setHeaderText("Instrucción para Profesores");
+					aviso.setContentText(LeerArchivo.leer("\\src\\recursos\\textos\\funcionProfesores.txt"));
+					aviso.initStyle(StageStyle.UTILITY);
+					aviso.showAndWait();
+				} else if(control.equals(botonSemestres)){
+					aviso.setHeaderText("Instrucción para Semestres");
+					aviso.setContentText(LeerArchivo.leer("\\src\\recursos\\textos\\funcionSemestres.txt"));
+					aviso.initStyle(StageStyle.UTILITY);
+					aviso.showAndWait();
+				}
+			}
+			
+		}
 		
+		Reglas event = new Reglas();
+		botonPerfil.setOnAction(event);
+		botonAsignaturas.setOnAction(event);
+		botonCalcularPAPA.setOnAction(event);
+		botonHorario.setOnAction(event);
+		botonProfesores.setOnAction(event);
+		botonSemestres.setOnAction(event);
 	}
 	
 	
