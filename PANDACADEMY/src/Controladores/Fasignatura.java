@@ -130,7 +130,7 @@ public class Fasignatura {
                         TextField nota = (TextField) getNodeFromGridPane(notas, 1, i);
                         TextField porcentaje = (TextField) getNodeFromGridPane(notas, 2, i);
                         System.out.println(nota.getText() + "   " + porcentaje.getText());
-                        asg.agregarNota(new Nota(Float.valueOf(porcentaje.getText()), Float.valueOf(nota.getText())));
+                        asg.agregarNota(new Nota(Float.valueOf(porcentaje.getText())/100, Float.valueOf(nota.getText())));
                     }
                     if (checkAsignatura(principal.estudiante, asg.getNombre(), principal.sa)) {
                         principal.sa.addAsignatura(asg);
@@ -210,7 +210,7 @@ public class Fasignatura {
             notas.addColumn(0, new Label(" PERIODO " + i));
             TextField n = new TextField(String.valueOf(asg.getNotas().get(i).getNota()));
             notas.addColumn(1, n);
-            TextField p = new TextField(String.valueOf(asg.getNotas().get(i).getPorcentaje()));
+            TextField p = new TextField(String.valueOf(asg.getNotas().get(i).getPorcentaje()*100));
             notas.addColumn(2, p);
         }
 
@@ -271,7 +271,7 @@ public class Fasignatura {
                             TextField porcentaje = (TextField) getNodeFromGridPane(notas, 2, i);
                             System.out.println(nota.getText() + "   " + porcentaje.getText());
                             asg.agregarNota(
-                                    new Nota(Float.valueOf(porcentaje.getText()), Float.valueOf(nota.getText())));
+                                    new Nota(Float.valueOf(porcentaje.getText())/100, Float.valueOf(nota.getText())));
                         }
                         v.close();
                     } else {

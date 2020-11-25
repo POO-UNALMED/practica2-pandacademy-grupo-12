@@ -17,6 +17,7 @@ import paneles.MostrarPerfil;
 import paneles.PanelAsignatura;
 import paneles.PanelEditP;
 import paneles.PanelHorarios;
+import paneles.PanelInicio;
 import paneles.PanelSemestre;
 
 public class principal extends Application {
@@ -99,9 +100,8 @@ public class principal extends Application {
 			Object control = e.getSource();
 
 			if (control.equals(p1.editarPerfil)) {
-				PanelInicio inicio = new PanelInicio();
 				PanelEditP editp = new PanelEditP();
-				p1.nombre.setCenter(inicio.getPanel());
+				p1.nombre.setCenter(editp.getPanel());
 				editp.getPanel().prefHeightProperty().bind(p1.nombre.heightProperty());
 				editp.getPanel().prefWidthProperty().bind(p1.nombre.widthProperty());
 
