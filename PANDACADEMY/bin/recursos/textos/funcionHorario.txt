@@ -4,9 +4,9 @@ Para agregar un horario a una asignatura, das click en "AGREGAR HORARIO" y llena
 
 y das a "GUARDAR" para guardar el horario o "CANCELAR" para descartar los cambios.
 
-SÃ“LO ACEPTA ASIGNATURAS EXISTENTES
-SÃ“LO ACEPTA HORAS NO OCUPADAS
+SÓLO ACEPTA ASIGNATURAS EXISTENTES
+SÓLO ACEPTA HORAS NO OCUPADAS
 
-Para editar o borrar un horario, das click en el respectivo horario. Das click al botÃ³n "BORRAR" para eliminar el horario o "GUARDAR" para guardar los cambios hechos.
+Para editar o borrar un horario, das click en el respectivo horario. Das click al botón "BORRAR" para eliminar el horario o "GUARDAR" para guardar los cambios hechos.
 
-Puedes acceder a la funcionalidad en la pestaÃ±a Procesos y consultas.
+Puedes acceder a la funcionalidad en la pestaña Procesos y consultas.
