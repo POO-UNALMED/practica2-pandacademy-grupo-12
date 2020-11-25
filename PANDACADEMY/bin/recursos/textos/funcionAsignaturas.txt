@@ -1,11 +1,11 @@
-Para agregar asignaturas, das click en el botón "AGREGAR" y llenas los siguientes campos:
+Para agregar asignaturas, das click en el botÃ³n "AGREGAR" y llenas los siguientes campos:
 
 	CREDITOS, NOMBRE, PROFESOR (Opcional), DETALLES (Opcional)
 
-También puedes agregar notas (opcional) donde, por cada nota, llenarías los campos:
+TambiÃ©n puedes agregar notas (opcional) donde, por cada nota, llenarÃ­as los campos:
 
 	Notas, Porcentaje
 
 Para borrar una asignatura ya creada, das click en la asignatura y luego a "BORRAR".
 
-Puedes acceder a la funcionalidad en la pestaña Procesos y consultas.
+Puedes acceder a la funcionalidad en la pestaÃ±a Procesos y consultas.
