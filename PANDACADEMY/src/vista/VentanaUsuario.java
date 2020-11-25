@@ -16,12 +16,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
 public class VentanaUsuario {
-	
-	private static final double AUTO = 0;
-
 
 	static File ruta = new File("");
-	
 	
 	BorderPane nombre = new BorderPane();
 	Scene user=new Scene(nombre,800,700);
@@ -29,7 +25,7 @@ public class VentanaUsuario {
 	MenuBar barraMenu = new MenuBar();
 
 	Menu archivo = new Menu("Archivo");
-	MenuItem usuarioMenu = new MenuItem("Usuario");
+	MenuItem usuarioMenu = new MenuItem("PANDACADEMY");
 	MenuItem salir=new MenuItem("Salir");
 
 	Menu procesos = new Menu("Procesos y consultas");

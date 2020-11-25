@@ -151,7 +151,7 @@ public class PanelHorarios {
 		prin.setPadding(new Insets(10));
 
 		
-		
+		prin.setStyle("-fx-background-color: #F4F4F4;");
 		
 	}
 	

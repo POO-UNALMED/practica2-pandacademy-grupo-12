@@ -45,6 +45,8 @@ public class MostrarPerfil {
 		root.setVgap(40);
 		root.setHgap(40);
 
+		root.setStyle("-fx-background-color: #F4F4F4;");
+
 	}
 
 	public GridPane getPanel() {

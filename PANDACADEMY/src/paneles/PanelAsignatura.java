@@ -85,6 +85,8 @@ public class PanelAsignatura {
 		root.prefWidthProperty().bind(prin.widthProperty());
 		root.prefHeightProperty().bind(prin.heightProperty());
 
+		prin.setStyle("-fx-background-color: #F4F4F4;");
+
 	}
 	
 	public GridPane getPanel() {

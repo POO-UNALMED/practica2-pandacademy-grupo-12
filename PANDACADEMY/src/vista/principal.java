@@ -1,23 +1,27 @@
 package vista;
 
+import BaseDatos.Deserialization;
+import BaseDatos.Serialization;
 import gestorAplicacion.Academico.Semestre;
 import gestorAplicacion.Persona.Estudiante;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
-import javafx.stage.Window;
-import paneles.*;
-import BaseDatos.*;
+import paneles.ListaProfesores;
+import paneles.MostrarPerfil;
+import paneles.PanelAsignatura;
+import paneles.PanelEditP;
+import paneles.PanelHorarios;
+import paneles.PanelSemestre;
 
 public class principal extends Application {
 
-	public static Estudiante estudiante = new Estudiante();
+	public static Estudiante estudiante = Deserialization.deserializarE();
 	public static Semestre sa = estudiante.getSemestres().get(estudiante.getSemestres().size() - 1); // ultimo semestre
 	VentanaInicio p = new VentanaInicio();
 	VentanaUsuario p1 = new VentanaUsuario();
@@ -25,11 +29,10 @@ public class principal extends Application {
 	@Override
 	public void start(Stage window) throws Exception {
 
-		ChangeStage startApp = new ChangeStage(p1.user, window);
-		p.boton.setOnAction(startApp);
+		ChangeStage cambStage = new ChangeStage(p, p1, window);
 
-		ChangeStage exitReturn = new ChangeStage(p.scene, window);
-		p1.salir.setOnAction(exitReturn);
+		p.boton.setOnAction(cambStage);
+		p1.salir.setOnAction(cambStage);
 
 		Handler evento = new Handler();
 		p1.semestres.setOnAction(evento);
@@ -51,7 +54,7 @@ public class principal extends Application {
 
 	public static void main(String[] args) {
 		launch(args);
-
+		Serialization.serializarE(principal.estudiante);
 	}
 
 	/**
@@ -59,27 +62,29 @@ public class principal extends Application {
 	 */
 	class ChangeStage implements EventHandler<ActionEvent> {
 
-		Scene newImplements;
+		VentanaInicio SceneInicio;
+		VentanaUsuario SceneUser;
 		Stage primaryFrame;
 
-		public ChangeStage(Scene implement, Stage window) {
-			newImplements = implement;
+		public ChangeStage(VentanaInicio implement, VentanaUsuario implement2, Stage window) {
+			SceneInicio = implement;
+			SceneUser = implement2;
 			primaryFrame = window;
 		}
 
 		@Override
 		public void handle(ActionEvent event) {
-			if (event.getEventType().equals(p.boton)) {
-				estudiante = Deserialization.deserializarE();
-				
-				
-				
-			} else if (event.getSource().equals(p1.salir)) {
-				Serialization.serializarE(estudiante);
-			}
-			primaryFrame.setScene(newImplements);
-			primaryFrame.setResizable(true);
+			if (event.getSource().equals(SceneInicio.boton)) {
+				principal.estudiante = Deserialization.deserializarE();
+				primaryFrame.setScene(SceneUser.user);
+				primaryFrame.setResizable(false);
 
+			} else if (event.getSource().equals(SceneUser.salir)) {
+				Serialization.serializarE(principal.estudiante);
+				SceneUser.nombre.setCenter(null);
+				primaryFrame.setScene(SceneInicio.scene);
+				primaryFrame.setResizable(false);
+			}
 		}
 	}
 
@@ -137,16 +142,16 @@ public class principal extends Application {
 				papa.setContentText("Tu P.A.P.A actual es: " + estudiante.getPAPA());
 				papa.showAndWait();
 			}
-			
+
 			else if (control.equals(p1.horario)) {
 				PanelHorarios horar = new PanelHorarios();
 				horar.getPanel().prefHeightProperty().bind(p1.nombre.heightProperty());
 				horar.getPanel().prefWidthProperty().bind(p1.nombre.widthProperty());
 				p1.nombre.setCenter(horar.getPanel());
-				
-				
-			}
 
+			} else if(control.equals(p1.usuarioMenu)){
+				p1.nombre.setCenter(null);
+			}
 		}
 
 	}

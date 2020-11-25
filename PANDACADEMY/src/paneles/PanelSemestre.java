@@ -61,9 +61,10 @@ public class PanelSemestre {
 
 			@Override
 			public void handle(ActionEvent event) {
-				//int num = 1 + Integer.valueOf(principal.estudiante.getSemestres()
-						//.get(principal.estudiante.getSemestres().size() - 1).getNombre().substring(9));
-				int num = 1+principal.estudiante.getSemestres().size();
+				// int num = 1 + Integer.valueOf(principal.estudiante.getSemestres()
+				// .get(principal.estudiante.getSemestres().size() -
+				// 1).getNombre().substring(9));
+				int num = 1 + principal.estudiante.getSemestres().size();
 				principal.estudiante.addSemestre(new Semestre("Semestre " + num));
 				Button boton = new Button("Semestre " + num);
 				boton.prefWidthProperty().bind(cajabot.widthProperty());
@@ -107,6 +108,7 @@ public class PanelSemestre {
 		@Override
 		public void handle(MouseEvent event) {
 			if (event.getClickCount() == 1) {
+				try{
 				for (Button semestre : papelera) {
 					if (semestre.equals((Button) event.getSource())) {
 						boton.setStyle(null);
@@ -119,20 +121,22 @@ public class PanelSemestre {
 				if (papelera.isEmpty()) {
 					boton.setStyle("-fx-background-color: GRAY;");
 					papelera.add((Button) event.getSource());
-				}
+				}}catch(Exception e){}
 			} else if (event.getClickCount() == 2) {
 				boton.setStyle(null);
 				papelera.remove((Button) event.getSource());
 				for (Semestre newS : principal.estudiante.getSemestres()) {
 					if (boton.getText().equals(newS.getNombre())) {
 						principal.sa = newS;
+						Alert aviso = new Alert(AlertType.INFORMATION);
+						aviso.setHeaderText(null);
+						aviso.setContentText(
+								"Cambio de semestre realizado\nSemestre actual: " + principal.sa.getNombre());
+						aviso.initStyle(StageStyle.UTILITY);
+						aviso.showAndWait();
+						break;
 					}
 				}
-				Alert aviso = new Alert(AlertType.INFORMATION);
-				aviso.setHeaderText(null);
-				aviso.setContentText("Cambio de semestre realizado\nSemestre actual: " + principal.sa.getNombre());
-				aviso.initStyle(StageStyle.UTILITY);
-				aviso.showAndWait();
 			}
 
 		}

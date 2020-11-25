@@ -37,8 +37,8 @@ public class VentanaInicio {
 		 */
 		MenuBar menu = new MenuBar();
 		Menu Inicio = new Menu("Inicio");
-		MenuItem salir = new MenuItem("salir");
-		MenuItem descripcion = new MenuItem("descripcion");
+		MenuItem salir = new MenuItem("Salir");
+		MenuItem descripcion = new MenuItem("Descripcion");
 		Inicio.getItems().addAll(descripcion, salir);
 		menu.getMenus().add(Inicio);
 		VBox top = new VBox(menu);

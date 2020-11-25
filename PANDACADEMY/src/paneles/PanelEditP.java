@@ -62,6 +62,8 @@ public class PanelEditP {
 		Handler evento = new Handler();
 		aceptar.setOnAction(evento);
 
+		m.setStyle("-fx-background-color: #F4F4F4;");
+
 	}
 
 	public GridPane getPanel() {
