@@ -55,11 +55,7 @@ public class ListaProfesores {
 		todos.setHgap(20);
 		for (int i = 0; i < ejemploProfesores.size(); i++) {
 			
-			String nombre = "";
 			String[] criterios = new String[] { "Nombre", "Correo", "Detalles", "Asignatura" };
-			if(ejemploProfesores.get(i).getNombre() != null) {
-				nombre = ejemploProfesores.get(i).getNombre();
-			}
 			String[] valores = new String[] { ejemploProfesores.get(i).getNombre(),
 					ejemploProfesores.get(i).getCorreo(), ejemploProfesores.get(i).getDetalles(),
 					ejemploProfesores.get(i).getAsignatura().getNombre() };
